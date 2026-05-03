@@ -1,3 +1,4 @@
+package fundamentals;
 import java.util.Scanner;
 public class StringBasics {
     public static void main(String[] args){
