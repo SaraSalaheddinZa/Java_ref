@@ -1,3 +1,4 @@
+package applications;
 public class CarInfo {
     public static void main (String [] args){
         String carMake = "Ford";
