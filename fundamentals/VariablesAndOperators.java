@@ -1,4 +1,5 @@
-public class VariablesAndOperators {
+package fundamentals;
+class VariablesAndOperators {
     public static void main(String [] args) {
         // Arithmetic Operators
         int x = 6;
