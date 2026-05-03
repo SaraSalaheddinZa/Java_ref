@@ -1,3 +1,4 @@
+package applications;
 public class FavoriteBook {
     public static void main(String [] args){
         String bookTitle = "Dracula";
