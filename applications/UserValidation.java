@@ -1,3 +1,4 @@
+package applications;
 import java.util.Scanner; // 1. Import
 
 public class UserValidation {
