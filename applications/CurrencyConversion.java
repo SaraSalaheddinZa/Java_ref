@@ -1,3 +1,4 @@
+package applications;
 public class CurrencyConversion {
     public static void main(String[] args){
         double amountInUSD = 100.0;
