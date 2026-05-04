@@ -106,6 +106,26 @@ public class StringBasics {
         // Replace all occurrences of ‘e’ with ‘a’ using replace() and print the output.
         String replaceSpe = anotherText.replace('e', 'a');
         System.out.println("The new word is: " + replaceSpe);
+
+        // Another Exercise:
+        // Declare and initialize the variable firstName = “Harry”.
+        String firstName = "Harry";
+        // Declare and initialize the variable lastName = “Grow”.
+        String lastName = "Grow";
+        // Declare and initialize the variable email = “harry.grow@example.com”.
+        String email = "harry.grow@example.com";
+        // Using the method toLowerCase() and the + operator, concatenate firstName and lastName after converting it to lowercase, then assign it to the variable username.
+        String textMerge = firstName.toLowerCase() + lastName.toLowerCase();
+        System.out.println("'username' after conversion and concatenation: " + textMerge);
+        // Correct the email address from “example.com” to “gmail.com”.
+        String updateEmail = email.replace("example", "gmail");
+        System.out.println("'email' after replacing example.com with gmail.com: " + updateEmail);
+        // Find the index of ‘@’ in the email address.
+        int index1 = email.indexOf('@');
+        System.out.println("index of @ in the email address is: " + index1);
+
+
     }
 }
+
 
