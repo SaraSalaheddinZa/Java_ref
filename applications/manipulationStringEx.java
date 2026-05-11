@@ -1,3 +1,4 @@
+package applications;
 public class manipulationStringEx {
     public static void main (String[] args){
         // First Example:
