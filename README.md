@@ -584,7 +584,7 @@ if (fullName.contains(familyName)) {
 }
 ```
 <img width="1024" height="559" alt="Image" src="https://github.com/user-attachments/assets/a1132079-9859-434e-bfdf-98d9e90af6bf" />
-### **Advanced Control Flow: Nested Conditions**
+### Advanced Control Flow: Nested Conditions
 
 **Nested Conditional Statements**
 
