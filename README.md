@@ -536,7 +536,6 @@ Java provides several built-in methods to identify or extract specific parts of 
 | `equals(string)` | Checks if two strings are **exactly** the same, including matching case. | Use this instead of `==` for comparing content. |
 | `toUpperCase()` | Converts every character in the string to uppercase. | Helpful for standardizing input before comparing it. |
 | `toLowerCase()` | Converts every character in the string to lowercase. | Often used in "search" features to make them user-friendly. |
-
 #### ⚖️ String Comparison Techniques
 
 Comparing strings is vital for tasks like password validation or filtering.
