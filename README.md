@@ -524,18 +524,20 @@ In Java, every character in a String is assigned a specific position called an *
 
 Java provides several built-in methods to identify or extract specific parts of a string (substrings).
 
-| **Method** | **Purpose** | **Example Result | Key Detail**  |
-| --- | --- | --- |
-| `startsWith(prefix)` | Checks if a string begins with specific text. | `"Java".startsWith("J")` → `true` |
-| `endsWith(suffix)` | Checks if a string ends with specific text. | `"Java".endsWith("a")` → `true` |
-| `isEmpty()` | Returns `true` if the string has a length of 0. | `"".isEmpty()` → `true` |
-| `indexOf(subString)` | Finds the first index position of a substring. | `"Test".indexOf("est")` → `1` |
-| `substring(index)` | Extracts text starting from the given index to the end. | `"Apple".substring(1)` → `"pple"` |
-| `trim()` | Removes spaces **only** from the beginning and end. | `" Java ".trim()` → `"Java"` |
-| `contains(subString)` | Checks if a specific sequence of characters exists anywhere inside the string. | Returns `true` even if the substring is in the middle of the text. |
-| `equals(string)` | Checks if two strings are **exactly** the same, including matching case. | Use this instead of `==` for comparing content. |
-| `toUpperCase()` | Converts every character in the string to uppercase. | Helpful for standardizing input before comparing it. |
-| `toLowerCase()` | Converts every character in the string to lowercase. | Often used in "search" features to make them user-friendly. |
+### 🔎 Identifying & Isolating Text
+
+| Method | Purpose | Example Result | Key Detail |
+|---|---|---|---|
+| `startsWith(prefix)` | Checks if string begins with text | `"Java".startsWith("J")` → true | Beginning check |
+| `endsWith(suffix)` | Checks if string ends with text | `"Java".endsWith("a")` → true | Ending check |
+| `isEmpty()` | Returns true if length = 0 | `"".isEmpty()` → true | Empty string |
+| `indexOf(subString)` | Finds first index | `"Test".indexOf("est")` → 1 | Position search |
+| `substring(index)` | Extract part of text | `"Apple".substring(1)` → "pple" | Text slicing |
+| `trim()` | Removes spaces start/end | `" Java ".trim()` → "Java" | Clean spaces |
+| `contains(subString)` | Checks existence | `"Hello".contains("ell")` → true | Anywhere search |
+| `equals(string)` | Exact comparison | `"A".equals("a")` → false | Case sensitive |
+| `toUpperCase()` | Convert to uppercase | `"java"` → "JAVA" | Standardizing |
+| `toLowerCase()` | Convert to lowercase | `"JAVA"` → "java" | Search friendly |
 #### ⚖️ String Comparison Techniques
 
 Comparing strings is vital for tasks like password validation or filtering.
