@@ -888,7 +888,7 @@ User input is used in:
 - Games
 - Data entry systems
 - Console-based tools
-
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/38dffeb0-4062-4175-852e-80552ebce5f4" />
 ---
 
 ## 💡 Key Concepts
