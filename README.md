@@ -672,6 +672,222 @@ Unreachable code is a common mistake where a block of code is written but can **
 - **Standardization**: Just like with Strings, using Booleans and clear naming (like `amountOfMoney`) makes nested paths much easier to debug.
 <img width="1198" height="1313" alt="Image" src="https://github.com/user-attachments/assets/119eeb05-9844-4b5e-8c5f-ae1d2f2d3e9e" />
 #### User Input with the Scanner Class
+#### What is User Input?
+
+User input allows a program to receive data from the user during execution.
+
+Instead of using fixed values written inside the code, the program becomes **interactive**, meaning it can change behavior depending on what the user enters.
+**Simple Analogy:**
+
+- Receiving the same food every day → **Fixed values**
+- A waiter asking what you want → **User input**
+
+Programming works the same way.
+
+The program asks → the user responds → the program processes the data.
+
+#### 🎯 Why User Input is Important
+
+User input enables programs to:
+
+- Interact with users
+- Collect information dynamically
+- Perform calculations
+- Make decisions
+- Build real applications instead of static programs
+
+Without input, programs are limited and predictable.
+
+#### 📦 The Scanner Class
+
+Java provides many built-in libraries.
+
+To read keyboard input, we use the **Scanner** class.
+
+The Scanner class belongs to:
+
+```
+java.util package
+```
+
+#### Step 1 — Import Scanner
+
+Before using Scanner, you must import it at the top of the program.
+
+```
+import java.util.Scanner;
+```
+
+👉 This tells Java to include the Scanner tools.
+
+Think of it as preparing the program to **listen** to the user.
+
+#### Step 2 — Create a Scanner Object
+
+Inside the `main` method:
+
+```
+Scannerkeyboard=newScanner(System.in);
+```
+
+### Explanation
+
+| Part | Meaning |
+| --- | --- |
+| `Scanner` | Data type |
+| `keyboard` | Object name (any name allowed) |
+| `System.in` | Input source (keyboard) |
+
+Now the program can read user input.
+
+#### Step 3 — Reading User Input
+
+Scanner provides different methods depending on the data type.
+
+**🔢 Reading Numbers**
+
+```
+intage=keyboard.nextInt();
+```
+
+Reads an integer.
+
+```
+doubleprice=keyboard.nextDouble();
+```
+
+Reads decimal numbers.
+
+```
+floatmoney=keyboard.nextFloat();
+```
+
+Reads float values.
+
+**📝 Reading Text (String)**
+
+```
+Stringname=keyboard.nextLine();
+```
+
+Reads an entire line of text.
+
+#### 📊 Common Scanner Methods
+
+| Method | Data Type |
+| --- | --- |
+| `nextInt()` | int |
+| `nextDouble()` | double |
+| `nextFloat()` | float |
+| `next()` | single word |
+| `nextLine()` | full sentence |
+| `nextBoolean()` | true / false |
+
+#### Example
+
+```
+importjava.util.Scanner;
+
+publicclassUserInputExample {
+
+publicstaticvoidmain(String[]args) {
+
+Scannerkeyboard=newScanner(System.in);
+
+System.out.print("Enter your age: ");
+intage=keyboard.nextInt();
+
+System.out.print("Enter your salary: ");
+doublesalary=keyboard.nextDouble();
+
+keyboard.nextLine();// clears buffer
+
+System.out.print("Enter your name: ");
+Stringname=keyboard.nextLine();
+
+System.out.println("Name: "+name);
+System.out.println("Age: "+age);
+System.out.println("Salary: "+salary);
+    }
+}
+```
+
+#### ⚠️ Very Important — The `nextLine()` Problem
+
+### Problem
+
+After reading numbers, Java sometimes skips string input.
+
+Example:
+
+```
+intage=keyboard.nextInt();
+Stringname=keyboard.nextLine();// skipped!
+```
+
+The program doesn't wait for input.
+
+#### Why It Happens
+
+`nextInt()` reads the number **but leaves the Enter key (`\n`) in memory**.
+
+`nextLine()` immediately reads that leftover newline.
+
+#### ✅ Solution
+
+Add an extra `nextLine()`:
+
+```
+keyboard.nextLine();// clear buffer
+```
+
+Then read the string normally.
+
+#### 🔄 How Input Works Internally
+
+1. Program displays a prompt.
+2. User types input.
+3. Input is stored temporarily in memory (input buffer).
+4. Scanner reads the value.
+5. Value is assigned to a variable.
+6. Program continues execution.
+
+#### 💡 Best Practices
+
+✔ Always import Scanner
+
+✔ Create only one Scanner object when possible
+
+✔ Use meaningful variable names
+
+✔ Display clear prompts before input
+
+✔ Handle newline issues with `nextLine()`
+
+✔ Close Scanner when finished:
+
+```
+keyboard.close();
+```
+
+#### 🚫 Common Beginner Mistakes
+
+- Forgetting `import java.util.Scanner`
+- Creating Scanner outside `main`
+- Using wrong input method
+- Mixing `nextInt()` and `nextLine()` incorrectly
+- Not showing instructions to the user
+
+#### Real-World Usage
+
+User input is used in:
+
+- Login systems
+- Registration forms
+- Banking applications
+- Games
+- Data entry systems
+- Console-based tools
 
 ---
 
