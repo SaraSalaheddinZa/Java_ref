@@ -706,7 +706,7 @@ To read keyboard input, we use the **Scanner** class.
 
 The Scanner class belongs to:
 
-```
+```jsx
 java.util package
 ```
 
@@ -714,7 +714,7 @@ java.util package
 
 Before using Scanner, you must import it at the top of the program.
 
-```
+```jsx
 import java.util.Scanner;
 ```
 
@@ -726,7 +726,7 @@ Think of it as preparing the program to **listen** to the user.
 
 Inside the `main` method:
 
-```
+```jsx
 Scannerkeyboard=newScanner(System.in);
 ```
 
@@ -746,19 +746,19 @@ Scanner provides different methods depending on the data type.
 
 **🔢 Reading Numbers**
 
-```
+```jsx
 intage=keyboard.nextInt();
 ```
 
 Reads an integer.
 
-```
+```jsx
 doubleprice=keyboard.nextDouble();
 ```
 
 Reads decimal numbers.
 
-```
+```jsx
 floatmoney=keyboard.nextFloat();
 ```
 
@@ -766,7 +766,7 @@ Reads float values.
 
 **📝 Reading Text (String)**
 
-```
+```jsx
 Stringname=keyboard.nextLine();
 ```
 
@@ -785,7 +785,7 @@ Reads an entire line of text.
 
 #### Example
 
-```
+```jsx
 importjava.util.Scanner;
 
 publicclassUserInputExample {
@@ -820,7 +820,7 @@ After reading numbers, Java sometimes skips string input.
 
 Example:
 
-```
+```jsx
 intage=keyboard.nextInt();
 Stringname=keyboard.nextLine();// skipped!
 ```
@@ -837,7 +837,7 @@ The program doesn't wait for input.
 
 Add an extra `nextLine()`:
 
-```
+```jsx
 keyboard.nextLine();// clear buffer
 ```
 
@@ -866,9 +866,11 @@ Then read the string normally.
 
 ✔ Close Scanner when finished:
 
-```
+
+```jsx
 keyboard.close();
 ```
+
 
 #### 🚫 Common Beginner Mistakes
 
@@ -889,7 +891,205 @@ User input is used in:
 - Data entry systems
 - Console-based tools
 <img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/38dffeb0-4062-4175-852e-80552ebce5f4" />
----
+#### Java Switch Statement
+
+#### What is a Switch Statement?
+
+A **switch statement** in Java is a control structure used to execute different blocks of code depending on the value of a variable or expression.
+
+Instead of writing many `if-else` conditions, `switch` provides a cleaner and more organized way to handle **multiple equality comparisons**.
+
+👉 Think of it like choosing an ice cream flavor:
+
+- Each flavor = `case`
+- Your choice = variable value
+- No matching flavor = `default`
+
+#### Why Use Switch Instead of If-Else?
+
+When checking many possible values:
+
+❌ Long chained `if-else` statements become messy.
+
+✅ `switch` makes the code:
+
+- Cleaner
+- Easier to read
+- More organized
+- Easier to maintain
+
+Best used when comparing **one variable** against **multiple fixed values**.
+
+#### Basic Syntax of Switch
+
+```jsx
+switch(variable) {
+
+casevalue1:
+// code
+break;
+
+casevalue2:
+// code
+break;
+
+default:
+// runs if no case matches
+}
+```
+
+### Keywords Explained
+
+| Keyword | Meaning |
+| --- | --- |
+| `switch` | Starts comparison |
+| `case` | Possible value |
+| `break` | Stops execution |
+| `default` | Runs if no match |
+
+#### How Switch Works (Execution Flow)
+
+1. Program reads a variable value.
+2. Switch checks cases **from top to bottom**.
+3. When a match is found:
+    - The code runs.
+4. Execution stops at `break`.
+5. If no match → `default` runs.
+
+#### Important Rule — Equality Only
+
+Switch statements only perform:
+
+✅ Equality checks (`==`)
+
+You **cannot** use:
+
+- `>`
+- `<`
+- `>=`
+- `<=`
+
+Switch compares values exactly.
+
+#### Case Sensitivity (Very Important)
+
+Strings inside switch are **case-sensitive**.
+
+Example:
+
+```jsx
+case"Strawberry
+```
+
+✅ `"Strawberry"` matches
+
+❌ `"strawberry"` does NOT match
+
+If no case matches → `default` executes.
+
+#### Fall Through Problem
+
+If you forget `break`, Java continues executing the next cases.
+
+**❌ Without Break**
+
+```jsx
+case"Strawberry":
+System.out.println("Strawberry");
+
+case"Vanilla":
+System.out.println("Vanilla");
+```
+
+**Output:**
+
+```jsx
+Strawberry
+Vanilla
+```
+
+This behavior is called **Fall Through**.
+
+ **Correct Version**
+
+```jsx
+case"Strawberry":
+System.out.println("Strawberry");
+break;
+```
+
+> 💡Nore: Always add `break` after each case.
+> 
+
+#### Complete Example
+
+```jsx
+import java.util.Scanner;
+
+public class IceCreamShop {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter flavor: ");
+        String flavor = input.nextLine();
+
+        switch(flavor) {
+
+            case "Strawberry":
+                System.out.println("I will have Strawberry ice cream");
+                break;
+
+            case "Vanilla":
+                System.out.println("I will have Vanilla ice cream");
+                break;
+
+            case "Mango":
+                System.out.println("I will have Mango ice cream");
+                break;
+
+            case "Chocolate":
+                System.out.println("I will have Chocolate ice cream");
+                break;
+
+            default:
+                System.out.println("I will have a glass of cold water");
+        }
+
+        input.close();
+    }
+}
+```
+
+#### Switch vs If-Else
+
+| If-Else | Switch |
+| --- | --- |
+| Good for ranges | Good for fixed values |
+| Can use conditions | Equality only |
+| Can get long | Cleaner structure |
+
+#### When Should You Use Switch?
+
+Use switch when:
+
+✅ Many fixed options exist
+
+✅ Comparing one variable
+
+✅ Equality comparison needed
+
+✅ Code readability matters
+
+#### Key Takeaways
+
+- Switch simplifies multiple equality checks.
+- Uses `case`, `break`, and `default`.
+- Stops execution using `break`.
+- Strings are case-sensitive.
+- Prevent fall-through using `break`.
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/1e1182d9-d5d8-4179-bc72-148f66e20067" />
 
 ## 💡 Key Concepts
 
