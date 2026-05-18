@@ -1091,6 +1091,211 @@ Use switch when:
 - Prevent fall-through using `break`.
 <img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/1e1182d9-d5d8-4179-bc72-148f66e20067" />
 
+#### Java For Loop
+
+#### What is an Iterative Task?
+
+An **iterative task** means repeating an action a specific or known number of times.
+
+Examples:
+
+- Sending emails to 20 people
+- Buying 5 items
+- Printing numbers from 1 to 10
+
+> 💡Note: When repetitions are **known**, Java uses a **for loop**.
+> 
+
+#### What is a For Loop?
+
+A **for loop** is an iterative structure used to repeat code a definite number of times.
+
+Instead of writing the same code many times:
+
+❌ Repeating instructions manually
+
+✅ Use one loop to automate repetition
+
+#### Real-Life Idea (Tony & Sidekick Robot)
+
+Tony gives instructions to a robot:
+
+Goal → Buy **5 turkeys**
+
+Rules:
+
+- Start counting
+- Repeat task
+- Stop after required number
+
+If instructions are incomplete (like forgetting to increase the counter), the robot repeats forever.
+
+⚠️ This is called a **Logical Error**.
+
+#### Structure of a For Loop
+
+```jsx
+for(initialization;condition;change) {
+// code to repeat
+}
+```
+
+The three parts are separated by **semicolon (;)**.
+
+#### The Three Components
+
+| Part | Purpose |
+| --- | --- |
+| Initialization | Starts the counter |
+| Condition (Check) | Determines if loop continues |
+| Change | Updates counter each repetition |
+
+#### Initialization
+
+Executed **only once** when the loop starts.
+
+```jsx
+inti=0;
+```
+
+👉 Sets starting value.
+
+#### Condition (Check)
+
+Controls when the loop stops.
+
+```jsx
+i<5
+```
+
+Loop runs **while condition is true**.
+
+#### Change (Increment / Decrement)
+
+Updates counter after each repetition.
+
+**Increment**
+
+```jsx
+i++
+```
+
+Increase by 1.
+
+**Decrement**
+
+```jsx
+i--
+```
+
+Decrease by 1.
+
+#### Complete Example (Counting Up)
+
+```jsx
+for(inti=0;i<5;i++) {
+System.out.println("Buying turkey number "+ (i+1));
+}
+```
+
+**What Happens?**
+
+| Step | Value |
+| --- | --- |
+| Start | i = 0 |
+| Repeat | until i < 5 |
+| Increase | i++ each time |
+| Runs | 5 times |
+
+#### Why Start from Zero?
+
+Java counting begins at **0**.
+
+Human counting:
+
+```jsx
+1 2 3 4 5
+```
+
+Computer counting:
+
+```jsx
+0 1 2 3 4
+```
+
+That is why we often write:
+
+```jsx
+(i+1)
+```
+
+to display human-friendly numbers.
+
+#### Counting Backward (Decrement Loop)
+
+```jsx
+for(inti=5;i>=1;i--) {
+System.out.println("Turkeys left: "+i);
+}
+```
+
+### Loop Logic
+
+- Start at 5
+- Continue while ≥ 1
+- Decrease each time
+
+Still runs **5 repetitions**.
+
+#### When Should You Use a For Loop?
+
+Use a for loop when:
+
+✅ Number of repetitions is known
+
+✅ Fixed iteration count
+
+✅ Controlled counting needed
+
+Examples:
+
+- Printing numbers
+- Processing arrays
+- Sending messages
+- Game rounds
+
+#### When NOT to Use For Loop
+
+❌ When repetitions depend on a condition you don't know beforehand.
+
+Example:
+
+- Run until user types "exit"
+
+(Use `while` loop instead.)
+
+#### Common Logical Mistake
+
+If you forget the change step:
+
+```jsx
+for(inti=0;i<5;)
+```
+
+The loop never stops → **Infinite Loop**.
+
+#### Key Takeaways
+
+- For loop repeats code a definite number of times.
+- Has three parts:
+    - Initialization
+    - Condition
+    - Change
+- Java counts starting from zero.
+- `++` increases count.
+- `-` decreases count.
+- Missing update causes logical errors.
+<img width="1190" height="1322" alt="Image" src="https://github.com/user-attachments/assets/a9360bfb-5866-460b-bdc3-9b49de1ac7ad" />
 ## 💡 Key Concepts
 
 - **Software Development Life Cycle (SDLC):** A structured process that guides software from idea to deployment — covering planning, design, development, testing, and maintenance.
