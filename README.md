@@ -1296,6 +1296,380 @@ The loop never stops → **Infinite Loop**.
 - `-` decreases count.
 - Missing update causes logical errors.
 <img width="1190" height="1322" alt="Image" src="https://github.com/user-attachments/assets/a9360bfb-5866-460b-bdc3-9b49de1ac7ad" />
+
+### Module 3 - OOP programming basics
+
+#### **What Are Methods in Java?**
+
+A **method** in Java is a block of code that performs a specific task.
+
+Methods help programmers organize code into smaller, reusable parts instead of writing everything inside the `main` method.
+
+Think of methods like steps in a sandwich recipe:
+
+1. Gather ingredients
+2. Assemble sandwich
+3. Serve sandwich
+
+Each step has its own responsibility.
+
+In Java, each step can become a separate method.
+
+#### Why Do We Use Methods?
+
+Methods are important because they make code:
+
+**1. Easier to Understand**
+
+Instead of one giant block of code, the program is divided into clear tasks.
+
+**Bad Approach**
+
+```jsx
+Makesandwich
+```
+
+**Better Approach**
+
+```jsx
+gatherIngredients()
+assembleSandwich()
+serveSandwich()
+```
+
+The second version is much clearer.
+
+**2. Easier to Manage (Modularity)**
+
+If you want to change one part of the program, you only modify one method.
+
+Example:
+
+- Change chicken to ham
+- Only edit the ingredient method
+- Other methods stay the same
+
+This concept is called: **Modularity**
+
+Breaking a program into smaller independent parts.
+
+**3. Reusable**
+
+Once a method is written, it can be used again and again without rewriting code.
+
+Example:
+
+```jsx
+serveSandwich();
+serveSandwich();
+serveSandwich();
+```
+
+This concept is called: **Reusability**
+
+Using the same code multiple times.
+
+#### The Main Method
+
+Every Java program starts with:
+
+```jsx
+publicstaticvoidmain(String[]args)
+```
+
+> 💡Note: The `main` method is the starting point of the program.
+> 
+
+It runs automatically when the program starts.
+
+#### How to Recognize a Method
+
+Methods always have:
+
+**1. Parentheses `()`**
+
+Example:
+
+```jsx
+gatherIngredients()
+```
+
+**2. Curly Braces `{ }`**
+
+They contain the method instructions.
+
+#### Method Naming Rules
+
+Java methods use **camelCase** naming.
+
+### Example
+
+```jsx
+gatherIngredients()
+assembleSandwich()
+serveSandwich()
+```
+
+Rules:
+
+- First word starts lowercase
+- Every next word starts with a capital letter
+- No spaces allowed
+
+#### Method Syntax
+
+Basic structure:
+
+```jsx
+publicstaticvoidmethodName() {
+
+}
+```
+
+Example:
+
+```jsx
+publicstaticvoidserveSandwich() {
+System.out.println("Serving sandwich");
+}
+```
+
+#### Understanding Each Keyword
+
+**public** Means the method can be accessed from anywhere
+
+**static** Allows the method to run without creating an object.
+
+**void** Means the method does not return a value.
+
+**methodName** the action/task name.
+
+#### Example of Creating Methods
+
+**Method 1 — Gather Ingredients**
+
+```jsx
+publicstaticvoidgatherIngredients() {
+System.out.println("All ingredients arranged");
+}
+```
+
+**Method 2 — Assemble Sandwich**
+
+```jsx
+publicstaticvoidassembleSandwich() {
+System.out.println("Assembling sandwich");
+}
+```
+
+**Method 3 — Serve Sandwich**
+
+```jsx
+publicstaticvoidserveSandwich() {
+System.out.println("Serving sandwich");
+}
+```
+
+#### Calling Methods
+
+A method does nothing until it is called.
+
+**Method call syntax:**
+
+```jsx
+methodName();
+```
+
+Example:
+
+```jsx
+gatherIngredients();
+assembleSandwich();
+serveSandwich();
+```
+
+#### Full Program Example
+
+```jsx
+publicclassSandwichProgram {
+
+publicstaticvoidgatherIngredients() {
+System.out.println("All ingredients arranged");
+    }
+
+publicstaticvoidassembleSandwich() {
+System.out.println("Assembling sandwich");
+    }
+
+publicstaticvoidserveSandwich() {
+System.out.println("Serving sandwich");
+    }
+
+publicstaticvoidmain(String[]args) {
+
+gatherIngredients();
+assembleSandwich();
+serveSandwich();
+
+    }
+}
+```
+
+**Program Output**
+
+```jsx
+Allingredientsarranged
+Assemblingsandwich
+Servingsandwich
+```
+
+#### Using Arrays Inside Methods
+
+The lesson also used an array to store ingredients.
+
+Example:
+
+```jsx
+staticString[]ingredients;
+```
+
+An array stores multiple values in one variable.
+
+#### Array Indexes
+
+Arrays start counting from:
+
+```jsx
+0
+```
+
+Example:
+
+```jsx
+ingredients[0]="Bread";
+ingredients[1]="Chicken";
+ingredients[2]="Cheese";
+ingredients[3]="Lettuce";
+```
+
+#### Checking Conditions Inside Methods
+
+The program used `if` statements to verify ingredients.
+
+Example:
+
+```jsx
+if(ingredients.length==4)
+```
+
+This checks whether there are exactly 4 ingredients.
+
+#### Comparing Strings in Java
+
+Strings must use:
+
+```jsx
+.equals()
+```
+
+NOT:
+
+```jsx
+==
+```
+
+Correct:
+
+```jsx
+ingredients[0].equals("Bread")
+```
+
+#### Boolean Variables
+
+The lesson used:
+
+```jsx
+staticbooleansandwichReady;
+```
+
+Boolean variables only store:
+
+- `true`
+- `false`
+
+Example:
+
+```jsx
+sandwichReady=true;
+```
+
+#### Method Execution Flow
+
+The program worked in this order:
+
+**Step 1**
+
+Gather ingredients
+
+↓
+
+**Step 2**
+
+Check ingredients and assemble sandwich
+
+↓
+
+**Step 3**
+
+Serve sandwich if ready
+
+#### Advantages of Methods
+
+| Advantage | Explanation |
+| --- | --- |
+| Clarity | Code becomes easier to read |
+| Modularity | Tasks are separated |
+| Reusability | Methods can be reused |
+| Easier Debugging | Errors are easier to find |
+| Better Organization | Cleaner program structure |
+
+#### Important Concepts Learned
+
+**1. Methods perform tasks**
+
+Each method has one responsibility.
+
+**2. Methods improve readability**
+
+Programs become easier to understand.
+
+**3. Methods can call other methods**
+
+Example:
+
+```jsx
+main()
+```
+
+calls:
+
+```jsx
+gatherIngredients()
+```
+
+**4. Methods reduce duplicated code**
+
+Write once → use many times.
+
+#### Real-Life Examples of Methods
+
+| Real Life Task | Java Method |
+| --- | --- |
+| Login | `loginUser()` |
+| Send Email | `sendEmail()` |
+| Calculate Price | `calculatePrice` |
+| Print Receipt | `printReceipt()` |
+| Upload File | `uploadFile` |
 ## 💡 Key Concepts
 
 - **Software Development Life Cycle (SDLC):** A structured process that guides software from idea to deployment — covering planning, design, development, testing, and maintenance.
