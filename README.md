@@ -1670,6 +1670,9 @@ Write once → use many times.
 | Calculate Price | `calculatePrice` |
 | Print Receipt | `printReceipt()` |
 | Upload File | `uploadFile` |
+
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/8d2ea9b0-7492-4452-906d-f517b6f305a5" />
+
 ## 💡 Key Concepts
 
 - **Software Development Life Cycle (SDLC):** A structured process that guides software from idea to deployment — covering planning, design, development, testing, and maintenance.
