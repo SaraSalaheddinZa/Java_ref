@@ -727,7 +727,7 @@ Think of it as preparing the program to **listen** to the user.
 Inside the `main` method:
 
 ```jsx
-Scannerkeyboard=newScanner(System.in);
+Scanner keyboard = newScanner(System.in);
 ```
 
 ### Explanation
@@ -747,19 +747,19 @@ Scanner provides different methods depending on the data type.
 **🔢 Reading Numbers**
 
 ```jsx
-intage=keyboard.nextInt();
+int age = keyboard.nextInt();
 ```
 
 Reads an integer.
 
 ```jsx
-doubleprice=keyboard.nextDouble();
+double price = keyboard.nextDouble();
 ```
 
 Reads decimal numbers.
 
 ```jsx
-floatmoney=keyboard.nextFloat();
+float money = keyboard.nextFloat();
 ```
 
 Reads float values.
@@ -767,7 +767,7 @@ Reads float values.
 **📝 Reading Text (String)**
 
 ```jsx
-Stringname=keyboard.nextLine();
+String name = keyboard.nextLine();
 ```
 
 Reads an entire line of text.
@@ -786,28 +786,28 @@ Reads an entire line of text.
 #### Example
 
 ```jsx
-importjava.util.Scanner;
+import java.util.Scanner;
 
-publicclassUserInputExample {
+public class UserInputExample {
 
-publicstaticvoidmain(String[]args) {
+public static void main(String[]args) {
 
-Scannerkeyboard=newScanner(System.in);
+Scanner keyboard = newScanner(System.in);
 
 System.out.print("Enter your age: ");
-intage=keyboard.nextInt();
+int age = keyboard.nextInt();
 
 System.out.print("Enter your salary: ");
-doublesalary=keyboard.nextDouble();
+double salary = keyboard.nextDouble();
 
 keyboard.nextLine();// clears buffer
 
 System.out.print("Enter your name: ");
-Stringname=keyboard.nextLine();
+String name = keyboard.nextLine();
 
-System.out.println("Name: "+name);
-System.out.println("Age: "+age);
-System.out.println("Salary: "+salary);
+System.out.println("Name: " + name);
+System.out.println("Age: " + age);
+System.out.println("Salary: " + salary);
     }
 }
 ```
@@ -821,8 +821,8 @@ After reading numbers, Java sometimes skips string input.
 Example:
 
 ```jsx
-intage=keyboard.nextInt();
-Stringname=keyboard.nextLine();// skipped!
+int age = keyboard.nextInt();
+String name = keyboard.nextLine();// skipped!
 ```
 
 The program doesn't wait for input.
@@ -978,7 +978,7 @@ Strings inside switch are **case-sensitive**.
 Example:
 
 ```jsx
-case"Strawberry
+case "Strawberry":
 ```
 
 ✅ `"Strawberry"` matches
@@ -994,10 +994,10 @@ If you forget `break`, Java continues executing the next cases.
 **❌ Without Break**
 
 ```jsx
-case"Strawberry":
+case "Strawberry":
 System.out.println("Strawberry");
 
-case"Vanilla":
+case "Vanilla":
 System.out.println("Vanilla");
 ```
 
@@ -1013,7 +1013,7 @@ This behavior is called **Fall Through**.
  **Correct Version**
 
 ```jsx
-case"Strawberry":
+case "Strawberry":
 System.out.println("Strawberry");
 break;
 ```
@@ -1135,7 +1135,7 @@ If instructions are incomplete (like forgetting to increase the counter), the ro
 #### Structure of a For Loop
 
 ```jsx
-for(initialization;condition;change) {
+for(initialization; condition; change;) {
 // code to repeat
 }
 ```
@@ -1279,7 +1279,7 @@ Example:
 If you forget the change step:
 
 ```jsx
-for(inti=0;i<5;)
+for (inti=0;i<5;)
 ```
 
 The loop never stops → **Infinite Loop**.
@@ -1296,6 +1296,302 @@ The loop never stops → **Infinite Loop**.
 - `-` decreases count.
 - Missing update causes logical errors.
 <img width="1190" height="1322" alt="Image" src="https://github.com/user-attachments/assets/a9360bfb-5866-460b-bdc3-9b49de1ac7ad" />
+
+#### While Loop & Do-While Loop in Java
+
+#### Iterative Structures in Java
+
+#### What Are Loops?
+
+A **loop** is a programming structure used to **repeat a block of code** multiple times based on a condition.
+
+Instead of writing the same instructions repeatedly, loops automate repetition.
+
+#### Why Do We Use Loops?
+
+Loops are used when:
+
+- The number of repetitions is **unknown**
+- A task must continue **until a condition change**
+- Programs need **user interaction**
+- Creating menus (like ATM systems)
+- Processing data collections
+
+#### Real-Life Example — ATM Menu
+
+When you use an ATM:
+
+- Deposit
+- Withdraw
+- Check balance
+- Exit
+
+The menu keeps appearing **until you choose Exit**.
+
+> 💡Note: is behavior is implemented using loops.
+> 
+
+#### The While Loop
+
+#### Definition
+
+The **while loop** repeats code **as long as a condition is TRUE**.
+
+When the condition becomes FALSE → the loop stops.
+
+#### Syntax
+
+```jsx
+while (condition) {
+// code to repeat
+}
+```
+
+#### How While Loop Works
+
+1. Check condition
+2. If TRUE → execute code
+3. Return to condition
+4. Repeat
+5. Stop when condition becomes FALSE
+
+#### Example — Cleaning the Attic
+
+Tony’s robot must remove boxes until the attic is empty.
+
+#### Problem Conditions
+
+- Robot carries **5 boxes per trip**
+- Stop when no boxes remain
+
+#### Code Example
+
+```jsx
+inttotalTrash=22;
+inttrashToCarry=5;
+
+while (totalTrash>0) {
+
+if (totalTrash<5) {
+trashToCarry=totalTrash;
+    }
+
+totalTrash-=trashToCarry;
+
+System.out.println("Remaining boxes: "+totalTrash);
+}
+
+System.out.println("All boxes removed!");
+```
+
+> ⚠️Note: The loop runs **while the condition is true**, not until zero automatically.
+> 
+
+> Without checking remaining items, values may become negative.
+> 
+
+#### When to Use While Loop
+
+Use `while` when:
+
+✅ number of repetitions is unknown
+
+✅ condition controls repetition
+
+✅ building menus
+
+✅ waiting for user input
+
+#### ♾️ Infinite While Loop
+
+Sometimes we want the loop to run continuously.
+
+```jsx
+while(true){
+// runs forever
+}
+```
+
+#### Example — ATM Menu
+
+The program keeps running until the user exits.
+
+⚠️ Always provide an exit condition using:
+
+- `break`
+- Boolean variable
+- User choice
+
+#### Controlling a Loop with Boolean
+
+A common technique:
+
+```jsx
+booleanrunLoop=true;
+
+while(runLoop){
+// menu
+
+if(userChoice==4){
+runLoop=false;
+    }
+}
+```
+
+#### Example — Interactive Menu
+
+```jsx
+importjava.util.Scanner;
+
+Scannersc=newScanner(System.in);
+booleanrunLoop=true;
+
+while(runLoop){
+
+System.out.println("1. Clean Attic");
+System.out.println("2. Clean Living Room");
+System.out.println("3. Clean Bedroom");
+System.out.println("4. Exit");
+
+intchoice=sc.nextInt();
+
+switch(choice){
+case1:
+System.out.println("Cleaning attic...");
+break;
+case2:
+System.out.println("Cleaning living room...");
+break;
+case3:
+System.out.println("Cleaning bedroom...");
+break;
+case4:
+runLoop=false;
+break;
+default:
+System.out.println("Invalid option");
+    }
+}
+```
+
+#### The Do-While Loop
+
+#### Definition
+
+The **do-while loop** executes the code **at least once**, then checks the condition.
+
+#### Syntax
+
+```jsx
+do {
+// code
+}while(condition);
+```
+
+#### Key Difference
+
+| Loop Type | Condition Checked |
+| --- | --- |
+| while | Before execution |
+| do-while | After execution |
+
+#### How Do-While Works
+
+1. Execute code first
+2. Check condition
+3. If TRUE → repeat
+4. If FALSE → stop
+
+#### Example — Prompt User at Least Once
+
+```jsx
+intpassword;
+
+do{
+System.out.println("Enter password:");
+password=sc.nextInt();
+
+}while(password!=1234);
+```
+
+Even if the condition is false initially → code runs once.
+
+#### Special Case Example
+
+```jsx
+inttotalTrashInRoom=0;
+
+do {
+System.out.println("I will take out some trash.");
+} while(totalTrashInRoom>0);
+```
+
+✅ Message prints once even though condition is false.
+
+#### While vs Do-While Comparison
+
+| Feature | While Loop | Do-While Loop |
+| --- | --- | --- |
+| Execution | May run 0 times | Runs at least once |
+| Condition Check | Before | After |
+| Best Use | Unknown repetition | Mandatory first execution |
+| Common Uses | Menus, validation | Password prompts |
+
+#### Common Use Cases
+
+#### While Loop
+
+- ATM systems
+- Game loops
+- Menu systems
+- Data processing
+- Waiting for valid input
+
+#### Do-While Loop
+
+- Login systems
+- Password validation
+- Retry operations
+- User prompts
+
+#### ⚠️ Common Mistakes
+
+#### 1. Infinite Loop
+
+```jsx
+while(i<10){
+// forgot to increment i
+}
+```
+
+✅ Always update the condition variable.
+
+#### 2. Wrong Condition Logic
+
+Incorrect conditions cause:
+
+- endless loops
+- skipped loops
+- negative values
+
+#### 3. Missing Exit Strategy
+
+Every loop need:
+
+- changing condition
+- break statement
+- user exit option
+
+#### ⭐ Key Takeaways
+
+- Loops automate repetition.
+- `while` runs only if condition is true.
+- `do-while` runs at least once.
+- Boolean variables help control menus.
+- Loops make programs **interactive**.
+- Essential for real applications and user interfaces.
+
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/64820b49-bf27-4bad-a30c-bcd745cfed71" />
 
 ### Module 3 - OOP programming basics
 
@@ -1314,6 +1610,16 @@ Think of methods like steps in a sandwich recipe:
 Each step has its own responsibility.
 
 In Java, each step can become a separate method.
+Just like your personal signature identifies you on documents, every method in Java has a **method signature** that identifies it.
+
+A method signature tells Java:
+
+- What the method does
+- How to call it
+- Whether it returns a value
+- What inputs it needs
+
+Without method signatures, Java would not know which method to execute.
 
 #### Why Do We Use Methods?
 
@@ -1374,7 +1680,9 @@ Using the same code multiple times.
 Every Java program starts with:
 
 ```jsx
-publicstaticvoidmain(String[]args)
+public static void main(String[] args) {
+
+}
 ```
 
 > 💡Note: The `main` method is the starting point of the program.
@@ -1421,7 +1729,7 @@ Rules:
 Basic structure:
 
 ```jsx
-publicstaticvoidmethodName() {
+public static void methodName() {
 
 }
 ```
@@ -1429,27 +1737,121 @@ publicstaticvoidmethodName() {
 Example:
 
 ```jsx
-publicstaticvoidserveSandwich() {
+public static void serveSandwich() {
 System.out.println("Serving sandwich");
 }
 ```
 
-#### Understanding Each Keyword
+#### **Understanding the `main()`Method Signature**
 
-**public** Means the method can be accessed from anywhere
+**1. `public`**
 
-**static** Allows the method to run without creating an object.
+**Meaning:**
 
-**void** Means the method does not return a value.
+An **access modifier**.
 
-**methodName** the action/task name.
+It means:
+```java
+The method can be accessed from anywhere.
+```
+Think of it like:
+
+> “Anyone can follow these instructions.”
+> 
+
+**2. `static`**
+
+**Meaning:**
+
+A sharing mechanism.
+
+It allows the method to be used without creating an object.
+
+Think of it like:
+
+> “These instructions are shared and always available.”
+> 
+
+**3. `void`**
+
+**Meaning:** The method does NOT return a value.
+
+Example:
+
+```jsx
+void
+```
+
+means:
+
+```jsx
+No result is sent back.
+```
+
+**4. `main`**
+
+**Meaning:**
+
+The method name.
+
+Java looks for:
+
+```jsx
+main
+```
+
+to start the program.
+
+**5. `(String[] args)`**
+
+**Meaning:**
+
+The parameter list.
+
+It allows input values to be passed into the program.
+
+`String[]` means:
+
+- An array of strings
+- Can contain multiple inputs
+- Can also be empty
+
+**6. `{ }`**
+
+**Meaning:** Contains the instructions of the method. Everything inside executes when the method runs.
+
+#### **Important Idea About Method Signatures**
+
+A method signature tells you:
+
+| Part | Purpose |
+| --- | --- |
+| What it does | Method name |
+| Who can use it | Access modifier |
+| Is it shared? | static |
+| Does it return something? | Return type |
+| Does it need inputs? | Parameter list |
+
+#### **Technical Terms You Must Know**
+
+| Keyword | Technical Name |
+| --- | --- |
+| **`public`** | Access Modifier |
+| **`static`** | Sharing Mechanism |
+| **`void / double / int`** | Return Type |
+| **`main`** | Method Name |
+| **`()`** | Parameter List |
+
+#### **Anatomy of a Method Signature**
+<img width="1672" height="941" alt="Image" src="https://github.com/user-attachments/assets/becee0b8-b98f-4272-b0bc-3ba59e489607" />
+
 
 #### Example of Creating Methods
 
 **Method 1 — Gather Ingredients**
 
 ```jsx
-publicstaticvoidgatherIngredients() {
+public static void gatherIngredients() {
 System.out.println("All ingredients arranged");
 }
 ```
@@ -1457,7 +1859,7 @@ System.out.println("All ingredients arranged");
 **Method 2 — Assemble Sandwich**
 
 ```jsx
-publicstaticvoidassembleSandwich() {
+public static void assembleSandwich() {
 System.out.println("Assembling sandwich");
 }
 ```
@@ -1465,12 +1867,155 @@ System.out.println("Assembling sandwich");
 **Method 3 — Serve Sandwich**
 
 ```jsx
-publicstaticvoidserveSandwich() {
+public static void serveSandwich() {
 System.out.println("Serving sandwich");
 }
 ```
+#### Two Types of Methods
 
-#### Calling Methods
+Java methods are divided into two types:
+
+**1. Non-Returning Methods**
+
+These methods:
+
+- Perform actions
+- Do NOT return results
+
+They use:
+
+```jsx
+void
+```
+
+Example:
+
+```jsx
+public static void gatherIngredients() {
+    System.out.println("Ingredients ready");
+}
+```
+
+This method performs an action only.
+
+**2. Returning Methods**
+
+These methods:
+
+- Perform calculations/tasks
+- Return a result
+
+Example:
+
+```jsx
+public static double calculateArea() {
+    return 25.0;
+}
+```
+
+This method returns a `double` value.
+
+#### Understanding Return Types
+
+The return type tells Java what kind of result comes back.
+
+| Return Type | Returns |
+| --- | --- |
+| `void` | Nothing |
+| `int` | Integer |
+| `double`  | Decimal number |
+| `boolean` | true or false |
+| `String` | Text |
+
+#### Example — Square Area Calculator
+
+**Variable Declaration**
+
+```jsx
+static double sideOfSquare;
+```
+
+Stores the square side length.
+
+#### Non-Returning Method Example
+
+**Setting the Side Value**
+
+```jsx
+public static void setSquareSide() {
+    sideOfSquare = 5.2;
+}
+```
+
+This method:
+
+- Changes a value
+- Returns nothing
+
+So it uses:
+
+```jsx
+void
+```
+
+#### Returning Method Example
+
+**Calculating Area**
+
+```jsx
+public static double calculateAreaOfSquare() {
+    return sideOfSquare * sideOfSquare;
+}
+```
+
+This method:
+
+- Calculates the area
+- Returns a decimal number
+
+So the return type is:
+
+```jsx
+double
+```
+
+#### The `return` Statement
+
+Used to send a value back from a method.
+
+Example:
+
+```jsx
+return sideOfSquare * sideOfSquare;
+```
+
+#### Important Rule About `return`
+
+The `return` statement:
+
+- Ends the method immediately
+- Must usually be the last executed statement
+
+Anything after it will not run.
+
+Example:
+
+```jsx
+return 5;
+System.out.println("Hello");
+```
+
+This causes an error because code after `return` is unreachable.
+
+#### Difference Between Returning and Non-Returning Methods
+
+| Feature | Non-Returning | Returning |
+| --- | --- | --- |
+| Uses `void` | Yes | No |
+| Returns value | No | Yes |
+| Can store result | No | Yes |
+| Example | print message | calculate result |
+#### **Calling Methods**
 
 A method does nothing until it is called.
 
@@ -1483,33 +2028,35 @@ methodName();
 Example:
 
 ```jsx
-gatherIngredients();
-assembleSandwich();
-serveSandwich();
+setSquareSide();
+calculateAreaOfSquare();
 ```
 
 #### Full Program Example
 
 ```jsx
-publicclassSandwichProgram {
+public class Main {
 
-publicstaticvoidgatherIngredients() {
-System.out.println("All ingredients arranged");
+    static double sideOfSquare;
+
+    public static void setSquareSide() {
+        sideOfSquare = 5.2;
     }
 
-publicstaticvoidassembleSandwich() {
-System.out.println("Assembling sandwich");
+    public static double calculateAreaOfSquare() {
+        return sideOfSquare * sideOfSquare;
     }
 
-publicstaticvoidserveSandwich() {
-System.out.println("Serving sandwich");
-    }
+    public static void main(String[] args) {
 
-publicstaticvoidmain(String[]args) {
+        setSquareSide();
 
-gatherIngredients();
-assembleSandwich();
-serveSandwich();
+        double areaOfSquare = calculateAreaOfSquare();
+
+        System.out.println(
+        "Area of the square with side "
+        + sideOfSquare +
+        " is: " + areaOfSquare);
 
     }
 }
@@ -1518,10 +2065,20 @@ serveSandwich();
 **Program Output**
 
 ```jsx
-Allingredientsarranged
-Assemblingsandwich
-Servingsandwich
+Area of the square with side 5.2 is: 27.04
 ```
+#### Important Point About Method Calls
+
+When calling a method, you only write:
+
+- Method name
+- Parentheses
+
+You DO NOT write:
+
+- public
+- static
+- return type
 
 #### Using Arrays Inside Methods
 
@@ -1530,7 +2087,7 @@ The lesson also used an array to store ingredients.
 Example:
 
 ```jsx
-staticString[]ingredients;
+static String[] ingredients;
 ```
 
 An array stores multiple values in one variable.
@@ -1546,10 +2103,10 @@ Arrays start counting from:
 Example:
 
 ```jsx
-ingredients[0]="Bread";
-ingredients[1]="Chicken";
-ingredients[2]="Cheese";
-ingredients[3]="Lettuce";
+ingredients[0] = "Bread";
+ingredients[1] = "Chicken";
+ingredients[2] = "Cheese";
+ingredients[3] = "Lettuce";
 ```
 
 #### Checking Conditions Inside Methods
@@ -1559,7 +2116,7 @@ The program used `if` statements to verify ingredients.
 Example:
 
 ```jsx
-if(ingredients.length==4)
+if (ingredients.length == 4)
 ```
 
 This checks whether there are exactly 4 ingredients.
@@ -1585,8 +2142,6 @@ ingredients[0].equals("Bread")
 ```
 
 #### Boolean Variables
-
-The lesson used:
 
 ```jsx
 staticbooleansandwichReady;
@@ -1671,7 +2226,7 @@ Write once → use many times.
 | Print Receipt | `printReceipt()` |
 | Upload File | `uploadFile` |
 
-<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/8d2ea9b0-7492-4452-906d-f517b6f305a5" />
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/21d39493-9ed2-48da-9797-5cce25118b8a" />
 
 ## 💡 Key Concepts
 
