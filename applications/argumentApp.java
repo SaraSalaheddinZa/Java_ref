@@ -1,4 +1,4 @@
-public class Main {
+public class argumentApp {
     // The strength is an argument
     public static int calculatePunchDamage(int strength){
         return strength * 2;
