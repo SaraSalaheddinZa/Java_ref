@@ -2228,6 +2228,348 @@ Write once → use many times.
 
 <img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/21d39493-9ed2-48da-9797-5cce25118b8a" />
 
+#### Classes and Objects in Java
+
+In earlier programs, all methods were written inside the `Main` class.
+
+That worked for small programs, but as the application grows, the `Main` class becomes crowded and difficult to manage.
+
+To solve this problem, Java uses **classes** and **objects**.
+
+#### Why Use Classes?
+
+Think of a game:
+
+- The `Main` class = the game control center
+- Heroes = separate characters with their own powers
+
+Instead of defining every hero ability inside `Main`, you create a separate class for heroes.
+
+> A **class** acts like a **blueprint**.
+> 
+
+It defines:
+
+- Characteristics (attributes/variables)
+- Actions (methods)
+
+#### What is a Class?
+
+A class is a template for creating objects.
+
+Example:
+
+```jsx
+class Hero {
+    String name = "Hero";
+    int strength = 20;
+    int health = 100;
+}
+```
+
+This class defines:
+
+| Attribute | Meaning |
+| --- | --- |
+| `name` | Hero name |
+| `strength` | Hero power |
+| `health` | Hero health points |
+
+These are called:
+
+- Fields
+- Properties
+- Attributes
+- Instance variables
+
+(All mean nearly the same thing.)
+
+#### Methods Inside Classes
+
+Classes can also contain methods.
+
+Example:
+
+```jsx
+public int calculatePunchDamage() {
+    return strength * 2;
+}
+```
+
+This method:
+
+- Uses the hero’s strength
+- Calculates damage
+- Returns the result
+
+#### Static vs Non-Static Methods
+
+Earlier methods were `static`.
+
+Example:
+
+```jsx
+public static int calculatePunchDamage()
+```
+
+But now methods belong to each hero object individually.
+
+So we remove `static`.
+
+```jsx
+public int calculatePunchDamage()
+```
+
+#### Why Remove Static?
+
+Because every hero should have its own behavior.
+
+Example:
+
+| Hero | Strength |
+| --- | --- |
+| FireFist | 20 |
+| FrostBlizzard | 35 |
+
+Different heroes → different damage.
+
+Non-static methods work with object-specific data.
+
+#### What is an Object?
+
+A class is only a blueprint.
+
+An **object** is the real thing created from the blueprint.
+
+Example:
+
+```jsx
+Hero fireFist = new Hero();
+```
+
+This creates a hero object.
+
+#### Object Creation (Instantiation)
+
+The process of creating objects is called:
+
+#### Instantiation
+
+Syntax:
+
+```jsx
+ClassName objectName = new ClassName();
+```
+
+Example:
+
+```jsx
+Hero fireFist = new Hero();
+```
+
+| Part | Meaning |
+| --- | --- |
+| `Hero` | Class name |
+| `fireFist` | Reference variable |
+| `new` | Creates object |
+| `Hero()` | Constructor |
+
+#### Reference Variable
+
+```jsx
+Hero fireFist
+```
+
+`fireFist` does not store the actual object directly.
+
+It stores a **reference** (address) pointing to the object.
+
+That’s why it’s called a: **Reference Variable**
+
+#### Constructor
+
+```jsx
+new Hero()
+```
+
+`Hero()` is a constructor.
+
+A constructor:
+
+- Creates objects
+- Initializes objects
+- Has the same name as the class
+
+Java automatically provides a default constructor if you don't create one.
+
+#### Accessing Object Properties
+
+Use the dot operator `.`
+
+Example:
+
+```jsx
+fireFist.name = "FireFist";
+```
+
+Or:
+
+```jsx
+System.out.println(fireFist.name);
+```
+
+The dot operator accesses:
+
+- Variables
+- Methods
+
+inside the object.
+
+#### **Calling Methods Through Objects**
+
+Example:
+
+```jsx
+int damage = fireFist.calculatePunchDamage();
+```
+
+The method belongs to the object.
+
+#### Multiple Objects from One Class
+
+One class can create many objects.
+
+Example:
+
+```jsx
+Hero fireFist = new Hero();
+Hero frostBlizzard = new Hero();
+```
+
+Each object has:
+
+- Its own data
+- Its own values
+- Its own behavior
+
+#### **Example of Different Heroes**
+
+```jsx
+fireFist.strength = 20;
+frostBlizzard.strength = 35;
+```
+
+Even though both are from the same class:
+
+- Their strengths differ
+- Their damage differs
+
+#### Special Attack Method
+
+Example:
+
+```jsx
+public int calculateSpecialAttackDamage(String attackType)
+```
+
+This method:
+
+- Accepts an argument
+- Uses different attack types
+
+Example:
+
+```jsx
+frostBlizzard.calculateSpecialAttackDamage("Ice Blast");
+```
+
+#### **Full Flow of the Program**
+
+**Step 1: Create Class**
+
+```jsx
+class Hero
+```
+
+Defines blueprint.
+
+**Step 2: Add Variables**
+
+```jsx
+String name;
+int strength;
+int health;
+```
+
+Defines hero properties.
+
+**Step 3: Add Methods**
+
+```jsx
+calculatePunchDamage()
+```
+
+Defines hero actions.
+
+**Step 4: Create Objects**
+
+```jsx
+Hero fireFist = new Hero();
+```
+
+Creates actual heroes.
+
+**Step 5: Customize Objects**
+
+```jsx
+fireFist.name = "FireFist";
+```
+
+Changes object values.
+
+**Step 6: Call Methods**
+
+```jsx
+fireFist.calculatePunchDamage();
+```
+
+Uses object behavior.
+
+#### Key Differences
+
+| Class | Object |
+| --- | --- |
+| Blueprint | Real instance |
+| Template | Actual thing |
+| Defines structure | Holds real values |
+
+#### Summary
+
+| Concept | Meaning |
+| --- | --- |
+| Class | Blueprint/template |
+| Object | Real instance |
+| Instantiation | Creating object |
+| Constructor | Creates object |
+| Reference variable | Stores object reference |
+| Dot operator | Access object members |
+| Non-static method | Belongs to object |
+| Attribute | Object data |
+| Method | Object action |
+
+#### Why Classes Are Powerful
+
+Classes make programs:
+
+- Cleaner
+- Organized
+- Reusable
+- Easier to maintain
+- Scalable
+
+Without classes, large applications become messy very quickly.
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/3e6c4832-58b6-4630-9189-c8323d41fd51" />
+
 ## 💡 Key Concepts
 
 - **Software Development Life Cycle (SDLC):** A structured process that guides software from idea to deployment — covering planning, design, development, testing, and maintenance.
