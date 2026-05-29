@@ -2,7 +2,7 @@
 <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&size=30&pause=1000&color=6EC1E4&center=true&vCenter=true&width=700&lines=Introduction+to+Software+Development;Learning+Software+Engineering+Concepts;SDLC+%7C+Programming+%7C+Development+✨" />
 </p>
 
-## 🌷 Introduction to Software Development
+## Introduction to Software Development
 ### Module 1 — Foundations of Software Development
 
 #### The Software Development Life Cycle (SDLC)
