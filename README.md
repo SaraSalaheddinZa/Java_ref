@@ -2621,3 +2621,36 @@ Without classes, large applications become messy very quickly.
 - **Unreachable Code**: Code that stays in the program but is never used because previous conditions make it impossible to reach.
 - **Boolean Flag**: A `true`/`false` variable used to store a user's preference or a state to be checked later in a nested block.
 - **Dry Run**: A manual technique where you "act like the computer" to trace the path of a program through nested levels to find logic bugs.
+- - **Scanner** enables **interactive Java programs.**
+- **Input** allows dynamic data processing.
+- Different **methods** read different data types.
+- Buffer handling is essential when mixing inputs.
+- **Argument**: Value passed to a method.
+- **Parameter**: Variable inside method definition.
+- **Return Type**: Data type returned.
+- **Method Signature**: Complete method definition.
+- **Reusability**: Reusing methods.
+- **Flexibility**: Dynamic behavior.
+- **Order Matters**: Argument order is important.
+- **Classes**: classes are blueprints and they define Data and behaviors
+- **Objects**: objects are real instances created from classes.
+- **Reference Variable:** Stores reference/address of object.
+- **Instantiation**: Process of creating objects using `new`.
+- **Behavior**: Methods/actions of object.
+- **State**: Current property values of object.
+- **Dot Operator:** Used to access properties and methods.
+- **Inheritance**: Creating a new class using an existing class.
+- **Superclass**: The parent class that provides common functionality.
+- **Subclass**: The child class that inherits from the superclass
+- **extends**: Keyword used for inheritance.
+- **IS-A Relationship**: A subclass is a specialized version of the superclass.
+- **Code reuse**: Using existing code instead of rewriting it.
+- **Polymorphism**: A subclass object can be used where a superclass object is expected.
+- **Constructor**: Special method used to initialize an object.
+- **Default Constructor**: Constructor automatically created by Java.
+- **Parameterized Constructor:** Constructor that receives arguments.
+- **super():** Used to call the superclass constructor.
+- **Constructor Chaining:** Sequence of constructor calls from superclass to subclass.
+- **Single-Level Inheritance:** One parent → one child.
+- **Multilevel Inheritance:** Parent → Child → Grandchild.
+- **Hierarchical Inheritance:** One parent → multiple children.
