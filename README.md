@@ -32,7 +32,6 @@ Before writing any Java code, you need to set up your environment properly.
 - **Setup order:** Install Java SDK → Install IDE → Configure IDE to use the SDK → Start coding.
 
 > 💡 **Tip:** IntelliJ IDEA is widely used in industry and has a free Community Edition — a great choice for learning.
-> 
 
 #### Java Syntax and Structure
 
@@ -583,6 +582,7 @@ if (fullName.contains(familyName)) {
 }
 ```
 <img width="1024" height="559" alt="Image" src="https://github.com/user-attachments/assets/a1132079-9859-434e-bfdf-98d9e90af6bf" />
+
 ### Advanced Control Flow: Nested Conditions
 
 **Nested Conditional Statements**
@@ -663,7 +663,7 @@ Unreachable code is a common mistake where a block of code is written but can **
 - **The "Roadmap" Analogy**: It's a destination on a map that has no road leading to it.
 - **Example**: If you check `if (number > 200)` first, and then inside its `else` you check `if (number > 300)`, the second check is unreachable because any number over 300 would have already been "caught" by the first `if`.
 
-#### **💡 Key Insights**
+#### **Key Insights**
 
 - **Hierarchy Matters**: In nesting, the order of your checks defines the "prerequisites" for your logic.
 - **Nearest-Else Rule**: Remember that an `else` always belongs to the closest `if` above it within the same block of code.
@@ -2568,6 +2568,413 @@ Classes make programs:
 
 Without classes, large applications become messy very quickly.
 <img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/3e6c4832-58b6-4630-9189-c8323d41fd51" />
+
+#### Grouping Methods in Java
+
+Previously, methods were placed directly inside the `Main` class.
+
+```jsx
+public static void main(String[] args) {
+
+}
+```
+
+That works for small programs.
+
+But as programs become larger, placing everything inside `Main` becomes:
+
+- messy
+- difficult to read
+- hard to maintain
+
+So Java introduces a better way to organize code: **Classes**
+
+#### The main Idea
+
+Instead of putting all methods inside one class:
+
+Group related methods together inside their own class.
+
+This improves:
+
+- organization
+- readability
+- reusability
+
+#### Real-World Analogy
+
+Imagine a video game.
+
+The `Main` class is like: **The Game Control Center**
+
+It controls the game flow.
+
+But hero powers should not all be written there.
+
+Instead:
+
+- Hero abilities belong in a `Hero` class
+- BMI logic belongs in a `BMICalculator` class
+- Bank logic belongs in a `BankAccount` class
+
+Each class has its own responsibility.
+
+#### What is a Class?
+
+A class is: A blueprint/template
+
+It groups together:
+
+- variables (data)
+- methods (actions)
+
+Example:
+
+```jsx
+class Hero {
+
+}
+```
+
+#### **Why Group Methods?**
+
+Without grouping:
+
+```jsx
+main()
+```
+
+becomes huge and confusing.
+
+Example problem:
+
+```jsx
+calculateBMI...
+calculateDamage...
+calculateSalary...
+calculateTax...
+```
+
+Everything mixed together.
+
+This is bad design.
+
+**Better Organization**
+
+Instead:
+
+```jsx
+class BMICalculator
+class Hero
+class SalaryCalculator
+```
+
+Each class handles one task.
+
+This is called: **Separation of Responsibilities**
+
+Very important in programming.
+
+#### Utility Classes
+
+A class created mainly to store reusable methods is called: **Utility Class**
+
+Example:
+
+```jsx
+class BMICalculator
+```
+
+Its purpose:
+
+- group BMI-related methods.
+
+#### Reusable Methods
+
+Example:
+
+```jsx
+calculateBmiImperial()
+calculateBmiMetric()
+```
+
+These methods can be reused many times.
+
+Write once → use everywhere.
+
+#### Benefits of Grouping Methods
+
+**1. Reduced Code Duplication**
+
+Without methods:
+
+```jsx
+formula
+formula
+formula
+formula
+```
+
+Repeated everywhere.
+
+With grouped methods:
+
+```jsx
+calculateBMI()
+```
+
+Only once.
+
+**2. Improved Readability**
+
+This:
+
+```jsx
+calculateBmiImperial()
+```
+
+is easier to understand than:
+
+```jsx
+weight / (height * height) * 703
+```
+
+inside many places.
+
+Method names explain the purpose clearly.
+
+**3. Easier Maintenance**
+
+Suppose the formula changes.
+
+Without grouped methods —> Change many lines.
+
+With grouped methods —> Update one method only.
+
+**4. Better Scalability**
+
+Programs grow over time.
+
+Grouping methods keeps projects manageable.
+
+#### Main Class Responsibility
+
+The `Main` class should mainly:
+
+- start the program
+- create objects
+- call methods
+
+NOT contain all program logic.
+
+#### Creating a Separate Class
+
+Example:
+
+```jsx
+public class BMICalculator {
+
+}
+```
+
+Now all BMI logic stays inside this class.
+
+#### Methods Inside Classes
+
+Example:
+
+```jsx
+public double calculateBmiImperial(...) {
+
+}
+```
+
+The class stores related functionality.
+
+#### Objects and Method Access
+
+To use methods from another class:
+
+You create an object.
+
+Example:
+
+```jsx
+BMICalculator bmiCalculator =
+    new BMICalculator();
+```
+
+**Breaking It Down**
+
+| Part | Meaning |
+| --- | --- |
+| `BMICalculator` | Class |
+| `bmiCalculator` | Reference variable |
+| `new` | Creates object |
+| `BMICalculator()` | Constructor |
+
+#### Calling Methods Through Objects
+
+Example:
+
+```jsx
+bmiCalculator.calculateBmiImperial(...)
+```
+
+Structure:
+
+```jsx
+objectName.methodName()
+```
+
+#### Why Use Objects?
+
+Objects allow access to:
+
+- methods
+- variables
+
+inside a class.
+
+#### Constructor Concept
+
+```jsx
+BMICalculator()
+```
+
+This is a constructor.
+
+Purpose: **Create objects**
+
+Java automatically gives a default constructor if you do not write one.
+
+#### Reusability Concept
+
+Once methods exist:
+
+```jsx
+calculateBmiImperial()
+```
+
+they can be reused many times.
+
+This avoids rewriting code.
+
+#### Professional Programming Principle
+
+Good programs organize code into:
+
+- classes
+- modules
+- reusable methods
+
+instead of writing everything in one place.
+
+#### Code Structure Improvement
+
+Bad structure:
+
+```jsx
+Main class
+ ├── everything
+ ├── everything
+ ├── everything
+```
+
+Good structure:
+
+```jsx
+Main
+ ├── Hero class
+ ├── BMICalculator class
+ ├── Utility classes
+```
+
+#### Important Concepts Introduced
+
+| Concept | Meaning |
+| --- | --- |
+| Class | Blueprint |
+| Object | Instance of class |
+| Utility class | Groups helper methods |
+| Reusability | Use methods repeatedly |
+| Constructor | Creates object |
+| Organization | Separating responsibilities |
+
+#### Small Notes
+
+**Method Names Should Describe Purpose**
+
+Good:
+
+```jsx
+calculateBmiImperial()
+```
+
+Bad:
+
+```jsx
+doStuff()
+```
+
+**Classes Should Have One Responsibility**
+
+Good:
+
+```jsx
+BMICalculator
+```
+
+contains BMI logic only.
+
+Bad:
+
+```jsx
+BMICalculator
+```
+
+containing:
+
+- music player
+- login system
+- games
+
+#### Group Related Logic Together
+
+This makes code:
+
+- easier to debug
+- easier to expand
+- easier for teams to understand
+
+#### Utility Classes Are Extremely Common
+
+Professional projects use utility/helper classes everywhere.
+
+Examples in Java:
+
+| Class | Purpose |
+| --- | --- |
+| `Math` | Math methods |
+| `Arrays` | Array utilities |
+| `Collections` | Collection utilities |
+
+#### Key Difference
+
+| Without Grouping | With Grouping |
+| --- | --- |
+| Repeated code | Reusable methods |
+| Messy main class | Organized classes |
+| Hard maintenance | Easy updates |
+| Poor readability | Clean structure |
+
+#### Final Key Takeaway
+
+As programs grow:
+
+❌ putting everything inside `Main` becomes bad practice.
+
+✅ grouping related methods into dedicated classes creates cleaner, reusable, scalable, and professional Java applications.
 
 ## 💡 Key Concepts
 
