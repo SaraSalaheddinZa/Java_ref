@@ -2971,10 +2971,1088 @@ Examples in Java:
 #### Final Key Takeaway
 
 As programs grow:
-
 ❌ putting everything inside `Main` becomes bad practice.
-
 ✅ grouping related methods into dedicated classes creates cleaner, reusable, scalable, and professional Java applications.
+
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/e4e7206e-5a44-4f1a-ab7d-05a4628c18e8" />
+
+#### Objects in Java
+
+#### What is an Object in Java?
+
+An **object** in Java is a real thing created from a class.
+
+- A **class** is the blueprint/template.
+- An **object** is the actual thing created using that blueprint.
+
+**Example:**
+
+- Class = Hero
+- Objects = FireFist, FrostBlizzard
+
+Think of the class as a character design sheet in a game, and the objects as the actual playable heroes.
+
+> **Objects are independent: Changing one object does not affect another object.**
+> 
+
+#### Main Idea of Objects
+
+An object contains:
+
+1. **Data / Properties** → characteristics of the object
+2. **Methods / Behaviors** → actions the object can perform
+
+#### **Example from the Hero Class**
+
+```jsx
+class Hero {
+    String name = "Hero";
+    int strength = 20;
+    int health = 100;
+
+    int calculatePunchDamage() {
+        return strength * 2;
+    }
+}
+```
+
+**Properties (State/Data)**
+
+```jsx
+name
+strength
+health
+```
+
+These describe the hero.
+
+> **Methods use object data: Methods usually depend on object state.**
+> 
+
+#### Methods (Behavior)
+
+```jsx
+calculatePunchDamage()
+```
+
+This describes what the hero can do.
+
+#### Three Components of an Object
+
+Every object in Java has 3 important components:
+
+#### **1. Identity**
+
+**Meaning**
+
+Identity means every object has its own unique place in memory.
+
+Even if two objects come from the same class, Java treats them as different objects.
+
+Example:
+
+```jsx
+Hero fireFist = new Hero();
+Hero frostBlizzard = new Hero();
+```
+
+Both are created from the Hero class, but they are different objects.
+
+**Printing Object Identity**
+
+```jsx
+System.out.println(fireFist);
+System.out.println(frostBlizzard);
+```
+
+Example output:
+
+```jsx
+Hero@6e8cf4c6
+Hero@12ab34cd
+```
+
+**Explanation**
+
+**`Hero`**
+
+The class name.
+
+#### **`@`**
+
+Separates class name from memory reference.
+
+**`6e8cf4c6`**
+
+Hexadecimal memory reference (address-like value).
+
+This proves each object has a unique identity.
+
+**Important Note**
+
+The variables:
+
+```jsx
+fireFist
+frostBlizzard
+```
+
+are called **reference variables** because they store references to objects, not the actual object itself.
+
+#### 2. State
+
+**Meaning**
+
+State means the current values stored inside the object’s variables.
+
+The state describes the condition of the object.
+
+**Example:**
+
+```jsx
+fireFist.name = "Fire Fist";
+fireFist.strength = 20;
+
+frostBlizzard.name = "Frost Blizzard";
+frostBlizzard.strength = 35;
+```
+
+Now both objects have different states.
+
+**FireFist State**
+
+| Property | Value |
+| --- | --- |
+| name | Fire Fist |
+| strength | 20 |
+| health | 100 |
+
+**FrostBlizzard State**
+
+| Property | Value |
+| --- | --- |
+| name | Frost Blizzard |
+| strength | 35 |
+| health | 100 |
+
+#### Important Concept
+
+Objects created from the same class can still have different states.
+
+That is why games can create many heroes from one Hero class.
+
+#### Dot Operator `.`
+
+The dot operator is used to access object properties and methods.
+
+**Example**
+
+```jsx
+fireFist.name
+fireFist.strength
+fireFist.calculatePunchDamage()
+```
+
+#### 3. Behavior
+
+**Meaning**
+
+Behavior means the actions an object can perform.
+
+Behavior is defined using methods.
+
+**Example**
+
+```jsx
+calculatePunchDamage()
+calculateSpecialAttackDamage()
+```
+
+These methods define the hero’s abilities.
+
+#### Behavior Depends on State
+
+Methods often use object properties.
+
+Example:
+
+```jsx
+return strength * 2;
+```
+
+The damage depends on the hero’s strength.
+
+**Stronger Hero = More Damage**
+
+**FireFist**
+
+```jsx
+strength = 20
+damage = 40
+```
+
+**FrostBlizzard**
+
+```jsx
+strength = 35
+damage = 70
+```
+
+Same method → different result because the object state is different.
+
+#### Relationship Between Identity, State, and Behavior
+
+| Component | Meaning | Example |
+| --- | --- | --- |
+| Identity | Unique object in memory | fireFist |
+| State | Current values of properties | strength = 20 |
+| Behavior | Actions performed by methods | calculatePunchDamage() |
+
+#### Object Creation (Instantiation)
+
+Creating an object is called: **Instantiation**
+
+**Syntax**
+
+```jsx
+ClassName objectName = new ClassName();
+```
+
+**Example**
+
+```jsx
+Hero fireFist = new Hero();
+```
+
+**Breakdown**
+
+| Part | Meaning |
+| --- | --- |
+| Hero | Class name |
+| fireFist | Reference variable |
+| new | Creates object |
+| Hero() | Constructor |
+
+#### Constructor
+
+A constructor is a special method used to create objects.
+
+```jsx
+Hero()
+```
+
+Java automatically provides a default constructor if you do not create one.
+
+#### Example Full Program
+
+```jsx
+class Hero {
+
+    String name = "Hero";
+    int strength = 20;
+    int health = 100;
+
+    int calculatePunchDamage() {
+        return strength * 2;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Hero fireFist = new Hero();
+        fireFist.name = "Fire Fist";
+
+        Hero frostBlizzard = new Hero();
+        frostBlizzard.name = "Frost Blizzard";
+        frostBlizzard.strength = 35;
+
+        System.out.println(fireFist.name);
+        System.out.println(frostBlizzard.name);
+
+        System.out.println(fireFist.calculatePunchDamage());
+        System.out.println(frostBlizzard.calculatePunchDamage());
+    }
+}
+```
+
+**Output**
+
+```jsx
+Fire Fist
+Frost Blizzard
+40
+70 
+```
+<img width="1055" height="1491" alt="Image" src="https://github.com/user-attachments/assets/c7347fee-2877-473e-b845-e0f47d520a7a" />
+
+#### Inheritance in Java (OOP)
+
+**What is Inheritance?**
+
+**Inheritance** is an Object-Oriented Programming (OOP) concept that allows a class to acquire the properties (variables) and behaviors (methods) of another class.
+
+It helps developers **reuse existing code** instead of rewriting the same functionality multiple times.
+
+**Real-Life Example:**
+
+Think about a **Car**.
+
+A car is a type of **Vehicle**.
+
+A truck is also a type of **Vehicle**.
+
+Both vehicles share common features:
+
+- Make
+- Model
+- Color
+- Speed
+- Accelerate
+- Brake
+- Turn
+
+Instead of writing these features again in every class, we create one **Vehicle** class and let other classes inherit from it.
+
+#### **Key Terminology**
+
+**1. Superclass (Parent Class)**
+
+A superclass is the main class that contains common properties and methods.
+
+Example:
+
+```jsx
+class Vehicle {
+    String make;
+    String model;
+    String color;
+    int speed;
+
+    public void accelerate() {
+        speed += 10;
+    }
+
+    public void brake() {
+        speed -= 10;
+    }
+}
+```
+
+Vehicle is the **Superclass**.
+
+**2. Subclass (Child Class)**
+
+A subclass inherits everything from the superclass and can add its own features.
+
+Example:
+
+```jsx
+class Car extends Vehicle {
+
+    public void adjustSeat() {
+        System.out.println("Adjusting seat...");
+    }
+}
+```
+
+Car is the **Subclass**.
+
+#### **The extends Keyword**
+
+Java uses the keyword:
+
+```jsx
+extends
+```
+
+to create inheritance.
+
+Example:
+
+```jsx
+class Car extends Vehicle
+```
+
+Meaning:
+
+> Car inherits from Vehicle.
+> 
+
+#### **The "IS-A" Relationship**
+
+Inheritance represents an **IS-A relationship**.
+
+Examples:
+
+- Car IS-A Vehicle
+- Truck IS-A Vehicle
+- SportsCar IS-A Vehicle
+
+If the sentence makes sense, inheritance is usually appropriate.
+
+#### **What Does the Subclass Inherit?**
+
+A subclass inherits:
+
+- Variables (Fields)
+
+```jsx
+make
+model
+color
+speed
+```
+
+- Methods
+
+```jsx
+accelerate()
+brake()
+turn()
+```
+
+From the superclass
+
+#### **Adding Unique Features**
+
+A subclass can add its own methods and variables.
+
+Example:
+
+```jsx
+class Car extends Vehicle {
+
+    public void adjustSeat() {
+        System.out.println("Seat adjusted");
+    }
+}
+```
+
+Now Car has:
+
+**Inherited Features**
+
+```jsx
+accelerate()
+brake()
+turn()
+```
+
+**Its Own Feature**
+
+```jsx
+adjustSeat()
+```
+
+#### **Creating an Object**
+
+```jsx
+Car gt = new Car();
+```
+
+Here:
+
+- `Car` → class name
+- `gt` → reference variable
+- `new Car()` → creates an object
+
+#### **Using Inherited Methods**
+
+```jsx
+gt.accelerate();
+```
+
+Even though accelerate() is inside Vehicle, Car can use it because of inheritance.
+
+This is called:
+
+**Code Reuse**
+
+No need to rewrite the method.
+
+#### **Example**
+
+```jsx
+Car gt = new Car();
+
+gt.make = "Ford";
+gt.model = "GT";
+gt.color = "Black";
+
+gt.accelerate();
+```
+
+Output:
+
+```jsx
+Vehicle speed increased
+```
+
+The method comes from Vehicle but is used by Car.
+
+#### **Benefits of Inheritance**
+
+**1. Code Reuse**
+
+Write code once.
+
+Use it in many subclasses.
+
+Without inheritance:
+
+```jsx
+Car
+Truck
+Bus
+Bike
+```
+
+would all need duplicate methods.
+
+With inheritance:
+
+```jsx
+Vehicle
+```
+
+contains common code only once.
+
+**2. Scalability**
+
+Adding new vehicle types becomes easier.
+
+Example:
+
+```jsx
+class Truck extends Vehicle
+class Bus extends Vehicle
+class SportsCar extends Vehicle
+```
+
+No need to rewrite common functionality.
+
+#### **3. Maintainability**
+
+If you update Vehicle:
+
+```
+accelerate()
+```
+
+every subclass automatically gets the update.
+
+Only one place needs modification.
+
+#### Polymorphism
+
+Example:
+
+```jsx
+public void repair(Vehicle vehicle) {
+    System.out.println("Repairing vehicle...");
+}
+```
+
+Calling:
+
+```jsx
+Car gt = new Car();
+
+garage.repair(gt);
+```
+
+works perfectly.
+
+Why?
+
+Because:
+
+```jsx
+Car IS-A Vehicle
+```
+
+A Car object can be treated as a Vehicle object.
+
+This flexibility is called: **Polymorphism**
+
+#### Visual Diagram
+<img width="1024" height="559" alt="Image" src="https://github.com/user-attachments/assets/698d244c-b724-4f41-b979-07df2d8a8890" />
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/ee2fc8ca-0653-4033-a49f-5a178955aa7c" />
+
+#### **Constructors in Inheritance**
+
+#### **What is a Constructor?**
+
+A constructor is a special method that runs automatically when an object is created.
+
+Its purpose is to initialize the object and prepare its data.
+
+**Example:**
+
+```jsx
+public Car() {
+    System.out.println("Car created.");
+}
+```
+
+**When:**
+
+```jsx
+Car car = new Car();
+```
+
+The constructor runs automatically.
+
+#### **Default Constructor**
+
+If you do not create a constructor yourself, Java automatically creates one for you.
+
+**Example:**
+
+```jsx
+class Vehicle {
+
+}
+```
+
+Java secretly creates:
+
+```jsx
+class Vehicle {
+
+    public Vehicle() {
+
+    }
+}
+```
+
+This is called: **Default Constructor**
+
+#### **Constructors During Inheritance**
+
+Suppose:
+
+```jsx
+class Vehicle {
+
+}
+
+class Car extends Vehicle {
+
+}
+```
+
+When you create:
+
+```jsx
+Car car = new Car();
+```
+
+Java does NOT create the Car object immediately.
+
+First:
+
+1. Vehicle constructor runs.
+2. Car constructor runs.
+
+This guarantees that all inherited properties are initialized correctly.
+
+#### **The super() Keyword**
+
+The keyword:
+
+```jsx
+super()
+```
+
+is used to call the constructor of the superclass.
+
+Example:
+
+```jsx
+public Car() {
+    super();
+}
+```
+
+Meaning:
+
+> Call the Vehicle constructor first.
+> 
+
+#### Important Rule
+
+The superclass constructor is ALWAYS executed before the subclass constructor.
+
+Example:
+
+```jsx
+class Vehicle {
+
+    public Vehicle() {
+        System.out.println("Vehicle created");
+    }
+}
+
+class Car extends Vehicle {
+
+    public Car() {
+        System.out.println("Car created");
+    }
+}
+```
+
+Output:
+
+```jsx
+Vehicle created
+Car created
+```
+
+Notice:
+
+Vehicle constructor executes first.
+
+#### Implicit super()
+
+If you do not write:
+
+```jsx
+super();
+```
+
+Java automatically adds it.
+
+Example:
+
+```jsx
+public Car() {
+
+}
+```
+
+Java treats it as:
+
+```jsx
+public Car() {
+    super();
+}
+```
+
+This is called: Implicit super() Call
+
+#### **Parameterized Constructors**
+
+Instead of using empty constructors, we can pass data.
+
+Vehicle constructor:
+
+```jsx
+public Vehicle(String make,
+               String model,
+               String color) {
+
+    this.make = make;
+    this.model = model;
+    this.color = color;
+    this.speed = 0;
+}
+```
+
+Now every Vehicle starts with its own values.
+
+#### **Calling a Parameterized Superclass Constructor**
+
+Inside Car:
+
+```jsx
+public Car(String make,
+           String model,
+           String color) {
+
+    super(make, model, color);
+
+    this.seatPosition = 0;
+}
+```
+
+Explanation:
+
+```jsx
+super(make, model, color);
+```
+
+sends the values to the Vehicle constructor.
+
+**Complete Example**
+
+**Vehicle Class**
+
+```jsx
+class Vehicle {
+
+    String make;
+    String model;
+    String color;
+    int speed;
+
+    // Parameterized constructor
+    public Vehicle(String make,
+                   String model,
+                   String color) {
+
+        this.make = make;
+        this.model = model;
+        this.color = color;
+        this.speed = 0;
+
+        System.out.println("Vehicle created.");
+    }
+
+    // Increase vehicle speed
+    public void accelerate() {
+        speed += 5;
+    }
+
+    // Decrease vehicle speed
+    public void brake() {
+        speed -= 5;
+    }
+
+    // Return current speed
+    public int getSpeed() {
+        return speed;
+    }
+}
+```
+
+**Car Class**
+
+```jsx
+class Car extends Vehicle {
+
+    int seatPosition;
+
+    // Parameterized constructor
+    public Car(String make,
+               String model,
+               String color) {
+
+        // Call Vehicle constructor
+        super(make, model, color);
+
+        seatPosition = 0;
+
+        System.out.println("Car created.");
+    }
+
+    // Move seat forward or backward
+    public void adjustSeat(int adjustment) {
+
+        seatPosition += adjustment;
+
+        if(adjustment > 0) {
+            System.out.println("Moving seat forward...");
+        }
+        else if(adjustment < 0) {
+            System.out.println("Moving seat backward...");
+        }
+        else {
+            System.out.println("Seat position unchanged.");
+        }
+    }
+}
+```
+
+**Main Class**
+
+```jsx
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Create a Car object
+        Car tesla =
+                new Car("Tesla",
+                        "Model S",
+                        "Red");
+
+        // Accelerate vehicle
+        tesla.accelerate();
+
+        // Display speed
+        System.out.println(
+                tesla.model +
+                " running at " +
+                tesla.getSpeed() +
+                " mph");
+
+        // Slow down vehicle
+        tesla.brake();
+
+        // Display speed again
+        System.out.println(
+                tesla.model +
+                " running at " +
+                tesla.getSpeed() +
+                " mph");
+
+        // Adjust seat position
+        tesla.adjustSeat(2);
+    }
+}
+```
+
+#### Constructor Chaining
+
+**Definition**
+
+The process where constructors call one another in an inheritance hierarchy.
+
+Example:
+
+```jsx
+Vehicle Constructor
+        ↓
+Car Constructor
+        ↓
+SportsCar Constructor
+```
+
+This sequence is called: Constructor Chaining
+
+#### Constructor Execution Order
+
+When:
+
+```jsx
+SportsCar car =
+        new SportsCar();
+```
+
+Execution order:
+
+```jsx
+Vehicle Constructor
+        ↓
+Car Constructor
+        ↓
+SportsCar Constructor
+```
+
+Always from parent to child.
+
+#### **Types of Inheritance**
+
+**1. Single-Level Inheritance**
+
+One child inherits from one parent.
+
+```jsx
+Vehicle
+   ↑
+  Car
+```
+
+Code:
+
+```jsx
+class Vehicle {
+
+}
+
+class Car extends Vehicle {
+
+}
+```
+
+**2. Multilevel Inheritance**
+
+A child inherits from a child.
+
+```jsx
+Vehicle
+   ↑
+  Car
+   ↑
+SportsCar
+```
+
+Code:
+
+```jsx
+class Vehicle {
+
+}
+
+class Car extends Vehicle {
+
+}
+
+class SportsCar extends Car {
+
+}
+```
+
+SportsCar inherits from:
+
+- Car
+- Vehicle
+
+**Example:**
+
+```jsx
+class SportsCar extends Car {
+
+    int turboBoost;
+
+    // Increase turbo power
+    public void activateTurboBoost(int amount) {
+
+        turboBoost += amount;
+
+        accelerate();
+    }
+}
+```
+
+**3. Hierarchical Inheritance**
+
+Multiple subclasses inherit from one superclass.
+
+```jsx
+          Vehicle
+         /      \
+       Car      Truck
+```
+
+Code:
+
+```jsx
+class Vehicle {
+
+}
+
+class Car extends Vehicle {
+
+}
+
+class Truck extends Vehicle {
+
+}
+```
+
+Both:
+
+```jsx
+Car
+Truck
+```
+
+inherit Vehicle features.
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/16f93aa2-92f9-4fa6-ac38-fa8afb4a9d49" />
 
 ## 💡 Key Concepts
 
