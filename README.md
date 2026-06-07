@@ -18,7 +18,7 @@ The SDLC is a structured framework that guides how software is built from start 
 5. **Deployment** — The software is released to a live environment (production). This can be done all at once or gradually (e.g., rolling deployments or beta releases).
 6. **Maintenance** — After launch, the software needs ongoing updates: bug fixes, performance improvements, and new features based on user feedback.
 
-> 💡 **Key Insight:** The SDLC is not always linear. Modern teams often use *Agile* methodology, where these phases repeat in short cycles called *sprints*, allowing continuous improvement.
+> **Key Insight:** The SDLC is not always linear. Modern teams often use *Agile* methodology, where these phases repeat in short cycles called *sprints*, allowing continuous improvement.
 > 
 
 #### Java Development Environment
