@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class SideKick extends Robot {
+public class SideKick extends Robot implements KungFuSkills {
 
     Scanner keyboard;
 
@@ -71,12 +71,10 @@ public class SideKick extends Robot {
         System.out.println("Go back to Toni...........");
     }
 
-    /* TODO 5: Implement the interface "KungFuSkills"
-                created in TODO 5.
-     */
-
-    /* TODO 6: Give the functionality inside the the methods
-                of the interface "KungFuSkills" which is
-                inside the method "kungFuProtection"
-     */
+    @Override
+    public void kungFuProtection() {
+        System.out.println("Find a Taolu...");
+        System.out.println("Execute the movements....");
+        System.out.println("Get in a defensive position...");
+    }
 }
