@@ -1,6 +1,6 @@
 package applications;
 /*
-     Constructor is a special method with the same name as the class, and it is called automatically whenever you create a new object.
+     Constructor is a special method with the same name as the class, and it is called automatically whenever you create a new object
      It initializes the object’s state (attribute values) during creation. They are called whenever you create an object using the new keyword.
      There are three types of constructors to consider:
      1. Default constructors.
