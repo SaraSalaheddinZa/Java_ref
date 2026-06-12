@@ -4054,6 +4054,753 @@ Truck
 inherit Vehicle features.
 <img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/16f93aa2-92f9-4fa6-ac38-fa8afb4a9d49" />
 
+#### **Calling Superclass Methods with `super` in Java**
+
+**Introduction**
+
+Previously, you learned that a subclass can inherit properties and methods from a superclass using the `extends` keyword.
+
+In this lesson, you learn something more powerful:
+
+**How to call methods and access variables from the superclass using the `super` keyword.**
+
+This allows a subclass to reuse existing functionality while adding new behavior.
+
+#### **The Class Hierarchy**
+
+The example uses three classes:
+
+```jsx
+Vehicle
+   ↑
+   |
+  Car
+   ↑
+   |
+SportsCar
+```
+
+**Vehicle (Superclass)**
+
+Contains common vehicle features:
+
+```jsx
+make
+model
+color
+speed
+```
+
+Methods:
+
+```jsx
+accelerate()
+brake()
+turn()
+getSpeed()
+```
+
+**Car (Subclass)**
+
+Inherits from Vehicle.
+
+Adds:
+
+```jsx
+seatPosition
+adjustSeat()
+```
+
+**SportsCar (Subclass)**
+
+Inherits from Car.
+
+Adds:
+
+```jsx
+turboBoost
+activateTurboBoost()
+```
+
+#### Why Use super?
+
+The `super` keyword refers to the **immediate parent class**.
+
+It allows a subclass to:
+
+**1. Call a superclass constructor**
+
+```jsx
+super(...)
+```
+
+**2. Call a superclass method**
+
+```jsx
+super.methodName()
+```
+
+**3. Access a superclass variable**
+
+```jsx
+super.variableName
+```
+
+#### Using super with Constructors
+
+SportsCar extends Car.
+
+When creating a SportsCar object:
+
+```jsx
+SportsCar ferrari =
+    new SportsCar("Ferrari",
+                  "F8 Tributo",
+                  "Yellow");
+```
+
+Java must first initialize the parent class.
+
+Constructor:
+
+```jsx
+public SportsCar(
+        String make,
+        String model,
+        String color) {
+
+    super(make, model, color);
+
+    this.turboBoost = 0;
+}
+```
+
+What happens?
+
+**Step 1:**
+
+```jsx
+super(make,model,color);
+```
+
+calls the parent constructor.
+
+**Step 2:**
+
+The parent constructor initializes:
+
+```jsx
+make
+model
+color
+```
+
+**Step 3:**
+
+SportsCar initializes:
+
+```jsx
+turboBoost
+```
+
+#### Calling a Superclass Method
+
+Vehicle already contains:
+
+```jsx
+public void accelerate() {
+    speed += 5;
+}
+```
+
+Inside SportsCar:
+
+```jsx
+public void activateTurboBoost() {
+
+    super.accelerate();
+
+    ...
+}
+```
+
+Meaning
+
+```jsx
+super.accelerate();
+```
+
+explicitly executes the accelerate() method from the parent class.
+
+The SportsCar reuses the Vehicle's acceleration logic instead of rewriting it.
+
+#### Accessing a Superclass Variable
+
+After accelerating:
+
+```jsx
+this.turboBoost += 50;
+```
+
+Now increase the inherited speed:
+
+```jsx
+super.speed += turboBoost;
+```
+
+**What happens?**
+
+Initial speed:
+
+```jsx
+0
+```
+
+After accelerate():
+
+```jsx
+5
+```
+
+After turbo boost:
+
+```jsx
+5 + 50 = 55
+```
+
+Final speed:
+
+```jsx
+55
+```
+
+#### Complete Turbo Boost Logic
+
+```jsx
+public void activateTurboBoost() {
+
+    super.accelerate();
+
+    this.turboBoost += 50;
+
+    super.speed += turboBoost;
+
+    System.out.println(
+        "Turbo boost activated");
+}
+```
+
+**Flow**
+
+```jsx
+Activate Turbo
+      ↓
+Call accelerate()
+      ↓
+Speed = 5
+      ↓
+TurboBoost = 50
+      ↓
+Add TurboBoost to Speed
+      ↓
+Speed = 55
+```
+
+#### Creating a SportsCar Object
+
+```jsx
+SportsCar ferrari =
+    new SportsCar(
+        "Ferrari",
+        "F8 Tributo",
+        "Yellow");
+```
+
+Object created:
+
+```jsx
+Make  : Ferrari
+Model : F8 Tributo
+Color : Yellow
+Turbo : 0
+Speed : 0
+```
+
+#### Calling the Method
+
+```jsx
+ferrari.activateTurboBoost();
+```
+
+Output:
+
+```jsx
+Vehicle is speeding up
+Turbo boost activated
+```
+
+**Getting the Current Speed**
+
+```jsx
+System.out.println(
+    ferrari.model +
+    " is running at " +
+    ferrari.getSpeed() +
+    " miles per hour");
+```
+
+**Output**:
+
+```jsx
+F8 Tributo is running at 55 miles per hour
+```
+
+#### Benefits of Calling Superclass Methods
+
+**1. Code Reuse**
+
+Reuse existing methods.
+
+No duplication.
+
+```jsx
+super.accelerate();
+```
+
+instead of rewriting:
+
+```jsx
+speed += 5;
+```
+
+**2. Cleaner Code**
+
+The parent class handles common functionality.
+
+The child class focuses only on new features.
+
+**3. Easier Maintenance**
+
+If accelerate() changes later:
+
+```jsx
+speed += 10;
+```
+
+every subclass automatically benefits.
+
+**4. Extensibility**
+
+You can build more specialized classes:
+
+```jsx
+Vehicle
+   ↓
+Car
+   ↓
+SportsCar
+   ↓
+RaceCar
+```
+
+without rewriting common code.
+
+#### Difference Between this and super
+
+| Keyword | Refers To |
+| --- | --- |
+| `this` | Current object |
+| `super` | Parent class |
+
+**Example:**
+
+```jsx
+this.turboBoost = 50;
+```
+
+refers to SportsCar's variable.
+
+```jsx
+super.speed += turboBoost;
+```
+
+refers to Vehicle's variable.
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/810147f9-e976-43e7-b8b0-f9efa5680485" />
+
+#### Polymorphism in Java
+
+#### What is Polymorphism?
+
+**Polymorphism** comes from Greek:
+
+- **Poly** = Many
+- **Morph** = Forms
+
+So, **Polymorphism = Many Forms**.
+
+In Java, polymorphism allows **the same method or reference to behave differently depending on the object being used**.
+
+#### Real-Life Example
+
+Think of a **universal remote control**:
+
+- One **Power** button
+- Controls a TV
+- Controls a Sound System
+- Controls an Air Conditioner
+
+The button is the same, but each device responds differently.
+
+This is exactly how polymorphism works in Java.
+
+**Definition**
+
+Polymorphism allows:
+
+- A superclass reference to work with subclass objects.
+- The same method name to perform different actions.
+- Code to become more reusable and flexible.
+
+Example:
+
+```jsx
+Vehicle myVehicle = new Car();
+```
+
+A `Car` object is being treated as a `Vehicle`. This is polymorphism.
+
+#### Types of Polymorphism in Java
+
+Java mainly supports:
+
+**1. Method Overloading**
+
+**2. Method Overriding**
+
+#### 1. Method Overloading
+
+**Definition**
+
+Method Overloading happens when:
+
+- Methods have the **same name**
+- But have **different parameters**
+
+The compiler decides which method to call based on the arguments.
+
+**Example:**
+
+```jsx
+class Shape {
+
+    public void draw() {
+        System.out.println("Drawing a shape");
+    }
+
+    public void draw(String color) {
+        System.out.println("Drawing a shape with color " + color);
+    }
+}
+```
+
+Both methods are named:
+
+```jsx
+draw()
+```
+
+But their parameter lists are different.
+
+**Calling Them:**
+
+```jsx
+Shape shape = new Shape();
+
+shape.draw();
+
+shape.draw("Red");
+```
+
+**Output:**
+
+```jsx
+Drawing a shape
+Drawing a shape with color Red
+```
+
+**Why It Works**
+
+Java looks at:
+
+```jsx
+draw()
+```
+
+and
+
+```jsx
+draw("Red")
+```
+
+and notices different arguments.
+
+Therefore, it knows which version to execute.
+
+For overloading, you must change:
+
+- Number of parameters
+
+OR
+
+- Parameter types
+
+OR
+
+- Parameter order
+
+Example:
+
+```jsx
+print()
+print(String name)
+print(int age)
+print(String name, int age)
+```
+
+All are vali overloads.
+
+#### 2. Method Overriding
+
+**Definition**
+
+Method Overriding happens when:
+
+A subclass creates its own version of a method that already exists in the superclass.
+
+The method name, parameters, and return type remain the same.
+
+**Example**
+
+Superclass:
+
+```jsx
+class Shape {
+
+    public void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+```
+
+Subclass:
+
+```jsx
+class Circle extends Shape {
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+```
+
+The Circle class replaces the original implementation.
+
+**Calling it:**
+
+```jsx
+Shape bangle = new Circle();
+
+bangle.draw();
+```
+
+**Output:**
+
+```jsx
+Drawing a circle
+```
+
+Even though the reference type is:
+
+```jsx
+Shape
+```
+
+Java executes the method from:
+
+```jsx
+Circle
+```
+
+because the actual object is Circle.
+
+This is Runtime Polymorphism.
+
+#### Why Does This Happen?
+
+Java always checks:
+
+**Reference Type**
+
+```jsx
+Shape bangle
+```
+
+for what methods are allowed.
+
+But it checks:
+
+**Actual Object Type**
+
+```jsx
+new Circle()
+```
+
+for which overridden method should run.
+
+#### Polymorphism with Inheritance
+
+Earlier you learned:
+
+```jsx
+Car extends Vehicle
+```
+
+This means:
+
+```jsx
+Car IS-A Vehicle
+```
+
+Therefore:
+
+```jsx
+Vehicle vehicle = newCar();
+```
+
+is valid.
+
+Because every Car is a Vehicle.
+
+**Garage Example**
+
+Method:
+
+```jsx
+public void repair(Vehicle vehicle)
+{
+    System.out.println("Vehicle repaired");
+}
+```
+
+Calling:
+
+```jsx
+Car gt = new Car();
+
+garage.repair(gt);
+```
+
+works because:
+
+```jsx
+Car IS-A Vehicle
+```
+
+This is polymorphism.
+
+The method expects a Vehicle.
+
+A Car object can be used automatically.
+
+#### Benefits of Polymorphism
+
+**1. Code Reusability**
+
+You can write one method and use it with many subclasses.
+
+Example:
+
+```jsx
+repair(Vehicle vehicle)
+```
+
+works for:
+
+- Car
+- Truck
+- SportsCar
+- Motorcycle
+
+without creating separate methods.
+
+**2. Flexibility**
+
+Adding a new subclass often requires little or no changes.
+
+Example:
+
+```jsx
+Vehicle vehicle = new Bus();
+```
+
+Your existing code still works.
+
+**3. Maintainability**
+
+Changes in the superclass automatically affect subclasses.
+
+Example:
+
+```jsx
+Vehicle
+```
+
+contains movement logic.
+
+Update it once:
+
+```jsx
+accelerate()
+```
+
+and all vehicle types benefit.
+
+**4. Cleaner Code**
+
+Instead of:
+
+```jsx
+repairCar()
+repairTruck()
+repairBus()
+repairBike()
+```
+
+You can simply write:
+
+```jsx
+repair(Vehicle vehicle)
+```
+
+#### Drawbacks of Polymorphism
+
+Polymorphism is powerful but can make code harder to understand.
+
+Example:
+
+```jsx
+Vehicle vehicle = new SportsCar();
+```
+
+At first glance, you may not know which method version will run.
+
+Therefore:
+
+- Design class hierarchies carefully.
+- Use meaningful class names.
+- Avoid excessive inheritance.
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/4a48a86e-2eae-4953-98af-b2ec0c21366d" />
 ## 💡 Key Concepts
 
 - **Software Development Life Cycle (SDLC):** A structured process that guides software from idea to deployment — covering planning, design, development, testing, and maintenance.
