@@ -4801,6 +4801,353 @@ Therefore:
 - Use meaningful class names.
 - Avoid excessive inheritance.
 <img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/4a48a86e-2eae-4953-98af-b2ec0c21366d" />
+
+#### Method Overloading (Compile-Time Polymorphism)
+
+**What is Method Overloading?**
+
+Method Overloading is a type of **Polymorphism** in Java.
+
+It allows a class to have **multiple methods with the same name**, but with **different parameter lists**.
+
+Think of it like a phone camera:
+
+- Portrait Mode
+- Landscape Mode
+- Night Mode
+
+The button is still **Take Picture**, but the behavior changes depending on the settings provided.
+
+**Camera Example**
+
+The class contains three methods with the same name:
+
+```jsx
+takePicture(String mode)
+```
+
+```jsx
+takePicture(int resolution)
+```
+
+```jsx
+takePicture(String mode, int resolution)
+```
+
+Although the names are identical, Java treats them as different methods because their parameter lists are different.
+
+**First Version**
+
+```jsx
+public void takePicture(String mode)
+{
+    System.out.println("Taking picture in " + mode + " mode");
+}
+```
+
+**Purpose**
+
+Allows the user to choose a camera mode.
+
+Example:
+
+```jsx
+takePicture("Portrait");
+```
+
+Output:
+
+```jsx
+Taking picture in Portrait mode
+```
+
+**Second Version**
+
+```jsx
+public void takePicture(int resolution)
+{
+    System.out.println("Taking picture in " + resolution + " megapixels");
+}
+```
+
+**Purpose**
+
+Allows the user to choose image resolution.
+
+Example:
+
+```jsx
+takePicture(12);
+```
+
+Output:
+
+```jsx
+Taking picture in 12 megapixels
+```
+
+**Third Version**
+
+```jsx
+public void takePicture(String mode, int resolution)
+{
+    System.out.println(
+        "Taking a " + resolution +
+        " megapixels picture in " +
+        mode + " mode"
+    );
+}
+```
+
+**Purpose**
+
+Allows the user to specify both:
+
+- Mode
+- Resolution
+
+Example:
+
+```jsx
+takePicture("Landscape", 24);
+```
+
+Output:
+
+```jsx
+Taking a 24 megapixels picture in Landscape mode
+```
+
+#### Important Rule of Overloading
+
+This is NOT allowed:
+
+```jsx
+public void takePicture(String mode)
+{
+}
+
+public void takePicture(String resolution)
+{
+}
+```
+
+Why?
+
+Because both methods have:
+
+- Same name
+- Same number of parameters
+- Same parameter type
+
+Java cannot distinguish between them.
+
+#### **Valid Overloading Examples**
+
+**Different Data Types**
+
+```jsx
+takePicture(String mode)
+takePicture(int resolution)
+```
+
+**Different Number of Parameters**
+
+```jsx
+takePicture(String mode)
+takePicture(String mode, int resolution)
+```
+
+**Different Order of Parameters**
+
+```jsx
+takePicture(String mode, int resolution)
+takePicture(int resolution, String mode)
+```
+
+#### **Creating the Object**
+
+```jsx
+Camera myFavoriteCamera = new Camera();
+```
+
+This creates an object from the Camera class.
+
+#### **Calling the Methods**
+
+**Call #1**
+
+```jsx
+myFavoriteCamera.takePicture("Portrait");
+```
+
+Java finds:
+
+```jsx
+takePicture(String mode)
+```
+
+**Call #2**
+
+```jsx
+myFavoriteCamera.takePicture(12);
+```
+
+Java finds:
+
+```jsx
+takePicture(int resolution)
+```
+
+**Call #3**
+
+```jsx
+myFavoriteCamera.takePicture("Landscape", 24);
+```
+
+Java finds:
+
+```jsx
+takePicture(String mode, int resolution)
+```
+
+#### Compile-Time Polymorphism
+
+Java decides **which method to execute before the program runs**, during compilation.
+
+Example:
+
+```jsx
+takePicture("Portrait");
+```
+
+Java immediately knows:
+
+```jsx
+takePicture(String mode)
+```
+
+will be called.
+
+This is called: **Compile-Time Polymorphism**
+
+or **Static Polymorphism** because the decision is made at compile time.
+
+#### Why Use Method Overloading?
+
+**1. Better Readability**
+
+Instead of:
+
+```jsx
+takePictureByMode()
+takePictureByResolution()
+takePictureByModeAndResolution()
+```
+
+you simply write:
+
+```jsx
+takePicture()
+```
+
+with different arguments.
+
+**2. Easier to Remember**
+
+One method name handles related tasks.
+
+```jsx
+takePicture(...)
+```
+
+for everything camera-related.
+
+**3. More Flexible Code**
+
+The same method can work in multiple ways.
+
+#### Difference Between Overloading and Overriding
+
+| Method Overloading | Method Overriding |
+| --- | --- |
+| Same class | Parent & Child classes |
+| Same method name | Same method name |
+| Different parameters | Same parameters |
+| Compile-time polymorphism | Runtime polymorphism |
+| No inheritance required | Inheritance required |
+
+Example:
+
+**Overloading**
+
+```jsx
+takePicture()
+takePicture(String mode)
+takePicture(int resolution)
+
+```
+
+**Overriding**
+
+```jsx
+class Camera
+{
+    void takePicture()
+    {
+        System.out.println("Taking picture");
+    }
+}
+
+class SmartCamera extends Camera
+{
+    @Override
+    void takePicture()
+    {
+        System.out.println("Taking AI picture");
+    }
+}
+```
+
+**Small Notes:**
+
+**Note 1**
+
+Method name can stay the same.
+
+```jsx
+takePicture(...)
+```
+
+Only the parameter list changes.
+
+**Note 2**
+
+Return type alone cannot overload methods.
+
+Invalid:
+
+```jsx
+int takePicture()
+double takePicture()
+```
+
+Same parameters → Error.
+
+**Note 3**
+
+Parameter list is what makes overloaded methods unique.
+
+Java checks:
+
+- Number of parameters
+- Types of parameters
+- Order of parameters
+
+**Note 4**
+
+Method overloading is the **first form of polymorphism** most Java developers learn.
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/c38b2e2d-3803-4ca9-a6a1-9fbb4c2d5529" />
 ## 💡 Key Concepts
 
 - **Software Development Life Cycle (SDLC):** A structured process that guides software from idea to deployment — covering planning, design, development, testing, and maintenance.
