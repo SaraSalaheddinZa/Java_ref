@@ -30,7 +30,7 @@ Before writing any Java code, you need to set up your environment properly.
 - **Java SDK (Software Development Kit):** The core toolkit needed to compile and run Java programs. Must be installed before using any IDE.
 - **Setup order:** Install Java SDK → Install IDE → Configure IDE to use the SDK → Start coding.
 
-> 💡 **Tip:** IntelliJ IDEA is widely used in industry and has a free Community Edition — a great choice for learning.
+>  **Tip:** IntelliJ IDEA is widely used in industry and has a free Community Edition — a great choice for learning.
 
 #### Java Syntax and Structure
 
